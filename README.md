@@ -11,4 +11,4 @@ In this section we will see how to extract the data for any digital services fro
 
 1. Go to [Daset/Grafana](https://www.daset.sk/grafana/login) and enter your username and password.
 
-![Daset Login](/Daset Login.png)
+![Daset-Login](Daset Login.png)
