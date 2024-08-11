@@ -10,3 +10,5 @@ In OJO we have multiple services divided into many categories:
 In this section we will see how to extract the data for any digital services from our monitoring tool [Daset/Grafana](https://www.daset.sk/grafana/login).
 
 1. Go to [Daset/Grafana](https://www.daset.sk/grafana/login) and enter your username and password.
+
+![Daset Login](/Daset Login.png)
