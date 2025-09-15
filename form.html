@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPER CREATIVITY ZAIN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- QuaggaJS for barcode scanning -->
+    <script src="https://unpkg.com/quagga@0.12.1/dist/quagga.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        .barcode-scanner-modal, .camera-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        #interactive.viewport, #camera-view {
+            position: relative;
+            width: 80vw;
+            height: 60vh;
+            max-width: 500px;
+            max-height: 400px;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        #interactive.viewport canvas, #interactive.viewport video, #camera-view video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .camera-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 min-h-screen flex items-center justify-center">
+
+    <div class="max-w-xl w-full bg-white shadow-xl rounded-2xl p-8 border border-gray-200">
+        <div class="flex flex-col items-center mb-6">
+            <!-- Logo -->
+            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-red-600 to-red-800 shadow-lg flex items-center justify-center mb-4">
+                <span class="text-white font-bold text-4xl">SC</span>
+            </div>
+            <h1 class="text-3xl font-bold text-center text-gray-800">SUPER CREATIVITY ZAIN</h1>
+        </div>
+        <p class="text-center text-gray-500 mb-8">يرجى ملء النموذج لطلب الخدمة المطلوبة.</p>
+
+        <!-- Service Request Form -->
+        <form id="serviceForm" class="space-y-6" enctype="multipart/form-data">
+            <!-- Transaction type selection field -->
+            <div>
+                <label for="serviceType" class="block text-sm font-medium text-gray-700">نوع المعاملة:</label>
+                <select id="serviceType" name="serviceType" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                    <option value="" disabled selected>اختر نوع المعاملة...</option>
+                    <option value="5G">معاملات 5G</option>
+                    <option value="Antenna">معاملات الهوائي</option>
+                    <option value="Landline">معاملات الارضي</option>
+                    <option value="FTTR_Landline">معاملات FTTR ارضي</option>
+                    <option value="FTTR_Antenna">معاملات FTTR هوائي</option>
+                    <option value="Drilling">معاملات حفر</option>
+                </select>
+            </div>
+
+            <!-- Container for dynamic form fields -->
+            <div id="dynamicFormFields" class="space-y-6">
+                <!-- Dynamic form fields will be added here based on service type -->
+            </div>
+
+            <!-- Field for uploading photos or taking photos -->
+            <div class="space-y-4">
+                <label for="photos" class="block text-sm font-medium text-gray-700">رفع أو التقاط صور:</label>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button type="button" id="openCameraButton" class="w-full sm:w-1/2 py-3 px-6 rounded-lg shadow-sm text-lg font-semibold text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out">
+                        <i class="fas fa-camera"></i> التقاط صور
+                    </button>
+                    <input type="file" id="photos" name="photos" multiple accept="image/*" class="w-full sm:w-1/2 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"/>
+                </div>
+                <div id="photo-preview" class="flex flex-wrap gap-2 mt-4"></div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="w-full py-3 px-6 border border-transparent rounded-lg shadow-sm text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+                إرسال الطلب
+            </button>
+        </form>
+
+        <!-- Confirmation / Error message -->
+        <div id="messageBox" class="mt-6 p-4 rounded-lg text-center hidden"></div>
+        <div id="loading" class="mt-6 text-center hidden">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 mx-auto"></div>
+            <p class="mt-2 text-gray-600">جاري الإرسال...</p>
+        </div>
+
+        <!-- Barcode Scanner Modal -->
+        <div id="barcodeScannerModal" class="barcode-scanner-modal hidden">
+            <div class="bg-white rounded-lg p-6 shadow-2xl relative w-full max-w-lg mx-4">
+                <button id="closeScanner" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <h3 class="text-xl font-bold mb-4 text-center">امسح الباركود</h3>
+                <div id="interactive" class="viewport rounded-lg mb-4"></div>
+                <div id="scanResult" class="text-center text-lg font-semibold text-gray-800"></div>
+                <p class="text-center text-sm text-gray-500 mt-2">وجّه الكاميرا نحو الباركود. سيتم المسح تلقائياً.</p>
+            </div>
+        </div>
+
+        <!-- Camera Modal -->
+        <div id="cameraModal" class="camera-modal hidden">
+            <div class="bg-white rounded-lg p-6 shadow-2xl relative w-full max-w-lg mx-4 text-center">
+                <button id="closeCamera" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <h3 class="text-xl font-bold mb-4">التقاط صورة</h3>
+                <video id="camera-view" class="rounded-lg mb-4" autoplay></video>
+                <button type="button" id="captureButton" class="py-3 px-6 rounded-lg shadow-sm text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+                    <i class="fas fa-camera"></i> التقاط
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // NOTE: Replace this with your actual Google Apps Script URL
+        const GOOGLE_APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxV8yoCxQ2VEFeswlxFetZtZIKrjygCh39m_Hn1aDmwLCq35nRgcyKeajp2QTlvROunbw/exec'
+        // Add a global event listener to catch any unhandled promise rejections
+        window.addEventListener('unhandledrejection', (event) => {
+            console.error('Caught an unhandled promise rejection:', event.reason);
+            event.preventDefault(); // Prevent the default behavior
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const serviceTypeSelect = document.getElementById('serviceType');
+            const dynamicFormFields = document.getElementById('dynamicFormFields');
+            const form = document.getElementById('serviceForm');
+            const messageBox = document.getElementById('messageBox');
+            const loadingIndicator = document.getElementById('loading');
+            const barcodeScannerModal = document.getElementById('barcodeScannerModal');
+            const closeScannerBtn = document.getElementById('closeScanner');
+            const scanResultDiv = document.getElementById('scanResult');
+            const openCameraButton = document.getElementById('openCameraButton');
+            const cameraModal = document.getElementById('cameraModal');
+            const closeCameraBtn = document.getElementById('closeCamera');
+            const cameraView = document.getElementById('camera-view');
+            const captureButton = document.getElementById('captureButton');
+            const photoPreview = document.getElementById('photo-preview');
+
+            let activeBarcodeField = null;
+            let capturedPhotos = [];
+            let videoStream = null;
+
+            // Function to generate dynamic form fields based on service type
+            const generateFormFields = (service) => {
+                dynamicFormFields.innerHTML = ''; // Clear previous fields
+                let fieldsHTML = '';
+                switch (service) {
+                    case '5G':
+                        fieldsHTML = `
+                            <div>
+                                <label for="teamName" class="block text-sm font-medium text-gray-700">اسم الفريق:</label>
+                                <input type="text" id="teamName" name="teamName" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="transactionNumber" class="block text-sm font-medium text-gray-700">رقم المعاملة:</label>
+                                <input type="text" id="transactionNumber" name="transactionNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="towerNumber" class="block text-sm font-medium text-gray-700">رقم البرج:</label>
+                                <input type="text" id="towerNumber" name="towerNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="buildingCode" class="block text-sm font-medium text-gray-700">بلدنج كود:</label>
+                                <input type="text" id="buildingCode" name="buildingCode" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="cableLength" class="block text-sm font-medium text-gray-700">طول الكيبل المستخدم:</label>
+                                <input type="number" id="cableLength" name="cableLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="pvcLength" class="block text-sm font-medium text-gray-700">طول pvc المستخدم:</label>
+                                <input type="number" id="pvcLength" name="pvcLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="externalRouterSerial" class="block text-sm font-medium text-gray-700">سيريل الراوتر الخارجي:</label>
+                                <div class="mt-1 flex items-center space-x-2">
+                                    <input type="text" id="externalRouterSerial" name="externalRouterSerial" required class="flex-grow px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    <button type="button" class="px-4 py-3 bg-blue-500 text-white rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 barcode-button">
+                                        <i class="fas fa-barcode"></i> مسح باركود
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="internalRouterSerial" class="block text-sm font-medium text-gray-700">سيريل الراوتر الداخلي:</label>
+                                <div class="mt-1 flex items-center space-x-2">
+                                    <input type="text" id="internalRouterSerial" name="internalRouterSerial" required class="flex-grow px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    <button type="button" class="px-4 py-3 bg-blue-500 text-white rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 barcode-button">
+                                        <i class="fas fa-barcode"></i> مسح باركود
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="notes" class="block text-sm font-medium text-gray-700">ملاحظات:</label>
+                                <textarea id="notes" name="notes" rows="3" class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"></textarea>
+                            </div>
+                        `;
+                        break;
+                    case 'Antenna':
+                        fieldsHTML = `
+                            <div>
+                                <label for="teamName" class="block text-sm font-medium text-gray-700">اسم الفريق:</label>
+                                <input type="text" id="teamName" name="teamName" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="transactionNumber" class="block text-sm font-medium text-gray-700">رقم المعاملة:</label>
+                                <input type="text" id="transactionNumber" name="transactionNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="antennaTransactionType" class="block text-sm font-medium text-gray-700">نوع المعاملة:</label>
+                                <select id="antennaTransactionType" name="antennaTransactionType" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                    <option value="" disabled selected>اختر...</option>
+                                    <option value="activation">تفعيل</option>
+                                    <option value="indoor_activation">داخلي وتفعيل</option>
+                                    <option value="outdoor_indoor_activation">خارجي وداخلي تفعيل</option>
+                                </select>
+                            </div>
+                            <!-- placeholder for dynamic fields based on antenna transaction type -->
+                            <div id="antenna-dynamic-fields"></div>
+                            <div>
+                                <label for="notes" class="block text-sm font-medium text-gray-700">ملاحظات:</label>
+                                <textarea id="notes" name="notes" rows="3" class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"></textarea>
+                            </div>
+                        `;
+                        break;
+                    case 'Landline':
+                        fieldsHTML = `
+                            <div>
+                                <label for="landlineTransactionType" class="block text-sm font-medium text-gray-700">نوع المعاملة:</label>
+                                <select id="landlineTransactionType" name="landlineTransactionType" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                    <option value="" disabled selected>اختر...</option>
+                                    <option value="activation">تفعيل</option>
+                                    <option value="indoor_activation">داخلي وتفعيل</option>
+                                </select>
+                            </div>
+                            <!-- placeholder for dynamic fields based on landline transaction type -->
+                            <div id="landline-dynamic-fields"></div>
+                            <div>
+                                <label for="notes" class="block text-sm font-medium text-gray-700">ملاحظات:</label>
+                                <textarea id="notes" name="notes" rows="3" class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"></textarea>
+                            </div>
+                        `;
+                        break;
+                    case 'FTTR_Landline':
+                        fieldsHTML = `
+                            <div>
+                                <label for="fttrLandlineTransactionType" class="block text-sm font-medium text-gray-700">نوع المعاملة:</label>
+                                <select id="fttrLandlineTransactionType" name="fttrLandlineTransactionType" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                    <option value="" disabled selected>اختر...</option>
+                                    <option value="activation">تفعيل</option>
+                                    <option value="indoor_activation">داخلي وتفعيل</option>
+                                </select>
+                            </div>
+                            <!-- placeholder for dynamic fields based on FTTR Landline transaction type -->
+                            <div id="fttr-landline-dynamic-fields"></div>
+                            <div>
+                                <label for="notes" class="block text-sm font-medium text-gray-700">ملاحظات:</label>
+                                <textarea id="notes" name="notes" rows="3" class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"></textarea>
+                            </div>
+                        `;
+                        break;
+                    case 'FTTR_Antenna':
+                        fieldsHTML = `
+                            <div>
+                                <label for="teamName" class="block text-sm font-medium text-gray-700">اسم الفريق:</label>
+                                <input type="text" id="teamName" name="teamName" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="transactionNumber" class="block text-sm font-medium text-gray-700">رقم المعاملة:</label>
+                                <input type="text" id="transactionNumber" name="transactionNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="fttrAntennaTransactionType" class="block text-sm font-medium text-gray-700">نوع المعاملة:</label>
+                                <select id="fttrAntennaTransactionType" name="fttrAntennaTransactionType" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                    <option value="" disabled selected>اختر...</option>
+                                    <option value="activation">تفعيل</option>
+                                    <option value="indoor_activation">داخلي وتفعيل</option>
+                                    <option value="outdoor_indoor_activation">خارجي وداخلي تفعيل</option>
+                                </select>
+                            </div>
+                            <!-- placeholder for dynamic fields based on FTTR Antenna transaction type -->
+                            <div id="fttr-antenna-dynamic-fields"></div>
+                            <div>
+                                <label for="notes" class="block text-sm font-medium text-gray-700">ملاحظات:</label>
+                                <textarea id="notes" name="notes" rows="3" class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"></textarea>
+                            </div>
+                        `;
+                        break;
+                    case 'Drilling':
+                        fieldsHTML = `
+                            <div>
+                                <label for="buildingCode" class="block text-sm font-medium text-gray-700">بلدنج كود:</label>
+                                <input type="text" id="buildingCode" name="buildingCode" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="cableType" class="block text-sm font-medium text-gray-700">نوع الكيبل:</label>
+                                <select id="cableType" name="cableType" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                    <option value="" disabled selected>اختر...</option>
+                                    <option value="4">4</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="cableLength" class="block text-sm font-medium text-gray-700">طول الكيبل:</label>
+                                <input type="number" id="cableLength" name="cableLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="connectorCount" class="block text-sm font-medium text-gray-700">عدد الكنكتر المستخدم:</label>
+                                <input type="number" id="connectorCount" name="connectorCount" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="singleDuctLength" class="block text-sm font-medium text-gray-700">طول السنجل دكت:</label>
+                                <input type="number" id="singleDuctLength" name="singleDuctLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="pvcPipeLength" class="block text-sm font-medium text-gray-700">طول مواسير pvc:</label>
+                                <input type="number" id="pvcPipeLength" name="pvcPipeLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                            </div>
+                            <div>
+                                <label for="notes" class="block text-sm font-medium text-gray-700">ملاحظات:</label>
+                                <textarea id="notes" name="notes" rows="3" class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"></textarea>
+                            </div>
+                        `;
+                        break;
+                    default:
+                        fieldsHTML = '';
+                        break;
+                }
+                dynamicFormFields.innerHTML = fieldsHTML;
+
+                // Attach nested event listeners for sub-types
+                const attachNestedListeners = () => {
+                    const antennaTransactionTypeSelect = document.getElementById('antennaTransactionType');
+                    if (antennaTransactionTypeSelect) {
+                        antennaTransactionTypeSelect.addEventListener('change', (event) => {
+                            const transactionType = event.target.value;
+                            const antennaDynamicFields = document.getElementById('antenna-dynamic-fields');
+                            let antennaFieldsHTML = '';
+                            if (transactionType === 'activation') {
+                                antennaFieldsHTML = `
+                                    <div>
+                                        <label for="routerSerial" class="block text-sm font-medium text-gray-700">سيريل الراوتر:</label>
+                                        <div class="mt-1 flex items-center space-x-2">
+                                            <input type="text" id="routerSerial" name="routerSerial" required class="flex-grow px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                            <button type="button" class="px-4 py-3 bg-blue-500 text-white rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 barcode-button">
+                                                <i class="fas fa-barcode"></i> مسح باركود
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="buildingCode" class="block text-sm font-medium text-gray-700">بلدنج كود:</label>
+                                        <input type="text" id="buildingCode" name="buildingCode" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="fatNumber" class="block text-sm font-medium text-gray-700">رقم FAT:</label>
+                                        <input type="text" id="fatNumber" name="fatNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="fdtNumber" class="block text-sm font-medium text-gray-700">رقم FDT:</label>
+                                        <input type="text" id="fdtNumber" name="fdtNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="otoUsed" class="block text-sm font-medium text-gray-700">هل تم استخدام OTO؟</label>
+                                        <select id="otoUsed" name="otoUsed" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="" disabled selected>اختر...</option>
+                                            <option value="yes">نعم</option>
+                                            <option value="no">لا</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="patchCordUsed" class="block text-sm font-medium text-gray-700">هل تم استخدام باتش كورد؟</label>
+                                        <select id="patchCordUsed" name="patchCordUsed" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="" disabled selected>اختر...</option>
+                                            <option value="yes">نعم</option>
+                                            <option value="no">لا</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="splitterUsed" class="block text-sm font-medium text-gray-700">هل قمت باضافة سبلتر؟</label>
+                                        <select id="splitterUsed" name="splitterUsed" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="" disabled selected>اختر...</option>
+                                            <option value="yes">نعم</option>
+                                            <option value="no">لا</option>
+                                        </select>
+                                    </div>
+                                `;
+                            } else if (transactionType === 'indoor_activation') {
+                                antennaFieldsHTML = `
+                                    <div>
+                                        <label for="externalCableType" class="block text-sm font-medium text-gray-700">نوع الكيبل الخارجي:</label>
+                                        <select id="externalCableType" name="externalCableType" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="4-fiber">4 شعره</option>
+                                            <option value="12-fiber">12 شعره</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="externalCableLength" class="block text-sm font-medium text-gray-700">طول الكيبل الخارجي:</label>
+                                        <input type="number" id="externalCableLength" name="externalCableLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="internalCableLength" class="block text-sm font-medium text-gray-700">طول الكيبل الداخلي:</label>
+                                        <input type="number" id="internalCableLength" name="internalCableLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="buildingCode" class="block text-sm font-medium text-gray-700">بلدنج كود:</label>
+                                        <input type="text" id="buildingCode" name="buildingCode" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="fatNumber" class="block text-sm font-medium text-gray-700">رقم FAT:</label>
+                                        <input type="text" id="fatNumber" name="fatNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="fdtNumber" class="block text-sm font-medium text-gray-700">رقم FDT:</label>
+                                        <input type="text" id="fdtNumber" name="fdtNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="patchCordUsed" class="block text-sm font-medium text-gray-700">هل تم استخدام باتش كورد؟</label>
+                                        <select id="patchCordUsed" name="patchCordUsed" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="" disabled selected>اختر...</option>
+                                            <option value="yes">نعم</option>
+                                            <option value="no">لا</option>
+                                        </select>
+                                    </div>
+                                `;
+                            } else if (transactionType === 'outdoor_indoor_activation') {
+                                antennaFieldsHTML = `
+                                    <div>
+                                        <label for="externalCableType" class="block text-sm font-medium text-gray-700">نوع الكيبل الخارجي:</label>
+                                        <select id="externalCableType" name="externalCableType" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="4-fiber">4 شعره</option>
+                                            <option value="12-fiber">12 شعره</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="externalCableLength" class="block text-sm font-medium text-gray-700">طول الكيبل الخارجي:</label>
+                                        <input type="number" id="externalCableLength" name="externalCableLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="internalCableLength" class="block text-sm font-medium text-gray-700">طول الكيبل الداخلي:</label>
+                                        <input type="number" id="internalCableLength" name="internalCableLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="routerSerial" class="block text-sm font-medium text-gray-700">سيريل الراوتر:</label>
+                                        <div class="mt-1 flex items-center space-x-2">
+                                            <input type="text" id="routerSerial" name="routerSerial" required class="flex-grow px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                            <button type="button" class="px-4 py-3 bg-blue-500 text-white rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 barcode-button">
+                                                <i class="fas fa-barcode"></i> مسح باركود
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="otoUsed" class="block text-sm font-medium text-gray-700">هل قمت بتركيب OTO؟</label>
+                                        <select id="otoUsed" name="otoUsed" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="" disabled selected>اختر...</option>
+                                            <option value="yes">نعم</option>
+                                            <option value="no">لا</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="singleDuctLength" class="block text-sm font-medium text-gray-700">طول سنجل دكت:</label>
+                                        <input type="number" id="singleDuctLength" name="singleDuctLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="pvcPipeLength" class="block text-sm font-medium text-gray-700">طول مواسير pvc:</label>
+                                        <input type="number" id="pvcPipeLength" name="pvcPipeLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="buildingCode" class="block text-sm font-medium text-gray-700">بلدنج كود:</label>
+                                        <input type="text" id="buildingCode" name="buildingCode" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="fatNumber" class="block text-sm font-medium text-gray-700">رقم FAT:</label>
+                                        <input type="text" id="fatNumber" name="fatNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="fdtNumber" class="block text-sm font-medium text-gray-700">رقم FDT:</label>
+                                        <input type="text" id="fdtNumber" name="fdtNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="patchCordUsed" class="block text-sm font-medium text-gray-700">هل تم استخدام باتش كورد؟</label>
+                                        <select id="patchCordUsed" name="patchCordUsed" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="" disabled selected>اختر...</option>
+                                            <option value="yes">نعم</option>
+                                            <option value="no">لا</option>
+                                        </select>
+                                    </div>
+                                `;
+                            }
+                            antennaDynamicFields.innerHTML = antennaFieldsHTML;
+                            attachBarcodeListeners();
+                        });
+                    }
+
+                    const landlineTransactionTypeSelect = document.getElementById('landlineTransactionType');
+                    if (landlineTransactionTypeSelect) {
+                        landlineTransactionTypeSelect.addEventListener('change', (event) => {
+                            const transactionType = event.target.value;
+                            const landlineDynamicFields = document.getElementById('landline-dynamic-fields');
+                            let landlineFieldsHTML = '';
+                            if (transactionType === 'activation') {
+                                landlineFieldsHTML = `
+                                    <div>
+                                        <label for="routerSerial" class="block text-sm font-medium text-gray-700">سيريل الراوتر:</label>
+                                        <div class="mt-1 flex items-center space-x-2">
+                                            <input type="text" id="routerSerial" name="routerSerial" required class="flex-grow px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                            <button type="button" class="px-4 py-3 bg-blue-500 text-white rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 barcode-button">
+                                                <i class="fas fa-barcode"></i> مسح باركود
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="cabinetNumber" class="block text-sm font-medium text-gray-700">رقم الكبينة:</label>
+                                        <input type="text" id="cabinetNumber" name="cabinetNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="kastNumber" class="block text-sm font-medium text-gray-700">رقم الكست:</label>
+                                        <input type="text" id="kastNumber" name="kastNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="portNumber" class="block text-sm font-medium text-gray-700">رقم البورت:</label>
+                                        <input type="text" id="portNumber" name="portNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="otoInstalled" class="block text-sm font-medium text-gray-700">هل قمت بتركيب OTO؟</label>
+                                        <select id="otoInstalled" name="otoInstalled" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="" disabled selected>اختر...</option>
+                                            <option value="yes">نعم</option>
+                                            <option value="no">لا</option>
+                                        </select>
+                                    </div>
+                                `;
+                            } else if (transactionType === 'indoor_activation') {
+                                landlineFieldsHTML = `
+                                    <div>
+                                        <label for="routerSerial" class="block text-sm font-medium text-gray-700">سيريل الراوتر:</label>
+                                        <div class="mt-1 flex items-center space-x-2">
+                                            <input type="text" id="routerSerial" name="routerSerial" required class="flex-grow px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                            <button type="button" class="px-4 py-3 bg-blue-500 text-white rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 barcode-button">
+                                                <i class="fas fa-barcode"></i> مسح باركود
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="cabinetNumber" class="block text-sm font-medium text-gray-700">رقم الكبينة:</label>
+                                        <input type="text" id="cabinetNumber" name="cabinetNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="kastNumber" class="block text-sm font-medium text-gray-700">رقم الكست:</label>
+                                        <input type="text" id="kastNumber" name="kastNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="portNumber" class="block text-sm font-medium text-gray-700">رقم البورت:</label>
+                                        <input type="text" id="portNumber" name="portNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="otoInstalled" class="block text-sm font-medium text-gray-700">هل قمت بتركيب OTO؟</label>
+                                        <select id="otoInstalled" name="otoInstalled" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="" disabled selected>اختر...</option>
+                                            <option value="yes">نعم</option>
+                                            <option value="no">لا</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="internalCableLength" class="block text-sm font-medium text-gray-700">طول الكيبل الداخلي:</label>
+                                        <input type="number" id="internalCableLength" name="internalCableLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="singleDuctLength" class="block text-sm font-medium text-gray-700">طول السنجل دكت:</label>
+                                        <input type="number" id="singleDuctLength" name="singleDuctLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="pvcPipeLength" class="block text-sm font-medium text-gray-700">طول مواسير pvc:</label>
+                                        <input type="number" id="pvcPipeLength" name="pvcPipeLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                `;
+                            }
+                            landlineDynamicFields.innerHTML = landlineFieldsHTML;
+                            attachBarcodeListeners();
+                        });
+                    }
+                    
+                    const fttrLandlineTransactionTypeSelect = document.getElementById('fttrLandlineTransactionType');
+                    if (fttrLandlineTransactionTypeSelect) {
+                        fttrLandlineTransactionTypeSelect.addEventListener('change', (event) => {
+                            const transactionType = event.target.value;
+                            const fttrLandlineDynamicFields = document.getElementById('fttr-landline-dynamic-fields');
+                            let fttrLandlineFieldsHTML = '';
+                            if (transactionType === 'activation' || transactionType === 'indoor_activation') {
+                                fttrLandlineFieldsHTML = `
+                                    <div>
+                                        <label for="routerSerial" class="block text-sm font-medium text-gray-700">سيريل الراوتر:</label>
+                                        <div class="mt-1 flex items-center space-x-2">
+                                            <input type="text" id="routerSerial" name="routerSerial" required class="flex-grow px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                            <button type="button" class="px-4 py-3 bg-blue-500 text-white rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 barcode-button">
+                                                <i class="fas fa-barcode"></i> مسح باركود
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="cabinetNumber" class="block text-sm font-medium text-gray-700">رقم الكبينة:</label>
+                                        <input type="text" id="cabinetNumber" name="cabinetNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="kastNumber" class="block text-sm font-medium text-gray-700">رقم الكست:</label>
+                                        <input type="text" id="kastNumber" name="kastNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="portNumber" class="block text-sm font-medium text-gray-700">رقم البورت:</label>
+                                        <input type="text" id="portNumber" name="portNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="otoInstalled" class="block text-sm font-medium text-gray-700">هل قمت بتركيب OTO؟</label>
+                                        <select id="otoInstalled" name="otoInstalled" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="" disabled selected>اختر...</option>
+                                            <option value="yes">نعم</option>
+                                            <option value="no">لا</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="internalCableLength" class="block text-sm font-medium text-gray-700">طول الكيبل الداخلي:</label>
+                                        <input type="number" id="internalCableLength" name="internalCableLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="singleDuctLength" class="block text-sm font-medium text-gray-700">طول السنجل دكت:</label>
+                                        <input type="number" id="singleDuctLength" name="singleDuctLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="pvcPipeLength" class="block text-sm font-medium text-gray-700">طول مواسير pvc:</label>
+                                        <input type="number" id="pvcPipeLength" name="pvcPipeLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="repeatersCount" class="block text-sm font-medium text-gray-700">كم عدد المقويات التي تم تركيبها؟</label>
+                                        <input type="number" id="repeatersCount" name="repeatersCount" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                `;
+                            }
+                            fttrLandlineDynamicFields.innerHTML = fttrLandlineFieldsHTML;
+                            attachBarcodeListeners();
+                        });
+                    }
+                    
+                    const fttrAntennaTransactionTypeSelect = document.getElementById('fttrAntennaTransactionType');
+                    if (fttrAntennaTransactionTypeSelect) {
+                        fttrAntennaTransactionTypeSelect.addEventListener('change', (event) => {
+                            const transactionType = event.target.value;
+                            const fttrAntennaDynamicFields = document.getElementById('fttr-antenna-dynamic-fields');
+                            let fttrAntennaFieldsHTML = '';
+                            if (transactionType === 'activation' || transactionType === 'indoor_activation' || transactionType === 'outdoor_indoor_activation') {
+                                fttrAntennaFieldsHTML = `
+                                    <div>
+                                        <label for="externalCableType" class="block text-sm font-medium text-gray-700">نوع الكيبل الخارجي:</label>
+                                        <select id="externalCableType" name="externalCableType" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="4-fiber">4 شعره</option>
+                                            <option value="12-fiber">12 شعره</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="externalCableLength" class="block text-sm font-medium text-gray-700">طول الكيبل الخارجي:</label>
+                                        <input type="number" id="externalCableLength" name="externalCableLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="internalCableLength" class="block text-sm font-medium text-gray-700">طول الكيبل الداخلي:</label>
+                                        <input type="number" id="internalCableLength" name="internalCableLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="routerSerial" class="block text-sm font-medium text-gray-700">سيريل الراوتر:</label>
+                                        <div class="mt-1 flex items-center space-x-2">
+                                            <input type="text" id="routerSerial" name="routerSerial" required class="flex-grow px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                            <button type="button" class="px-4 py-3 bg-blue-500 text-white rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 barcode-button">
+                                                <i class="fas fa-barcode"></i> مسح باركود
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="otoUsed" class="block text-sm font-medium text-gray-700">هل تم استخدام OTO؟</label>
+                                        <select id="otoUsed" name="otoUsed" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="" disabled selected>اختر...</option>
+                                            <option value="yes">نعم</option>
+                                            <option value="no">لا</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="singleDuctLength" class="block text-sm font-medium text-gray-700">طول سنجل دكت:</label>
+                                        <input type="number" id="singleDuctLength" name="singleDuctLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="pvcPipeLength" class="block text-sm font-medium text-gray-700">طول مواسير pvc:</label>
+                                        <input type="number" id="pvcPipeLength" name="pvcPipeLength" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="buildingCode" class="block text-sm font-medium text-gray-700">بلدنج كود:</label>
+                                        <input type="text" id="buildingCode" name="buildingCode" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="fatNumber" class="block text-sm font-medium text-gray-700">رقم FAT:</label>
+                                        <input type="text" id="fatNumber" name="fatNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="fdtNumber" class="block text-sm font-medium text-gray-700">رقم FDT:</label>
+                                        <input type="text" id="fdtNumber" name="fdtNumber" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                    <div>
+                                        <label for="patchCordUsed" class="block text-sm font-medium text-gray-700">هل تم استخدام باتش كورد؟</label>
+                                        <select id="patchCordUsed" name="patchCordUsed" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800">
+                                            <option value="" disabled selected>اختر...</option>
+                                            <option value="yes">نعم</option>
+                                            <option value="no">لا</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="repeatersCount" class="block text-sm font-medium text-gray-700">كم عدد المقويات التي تم تركيبها؟</label>
+                                        <input type="number" id="repeatersCount" name="repeatersCount" required class="mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-800"/>
+                                    </div>
+                                `;
+                            }
+                            fttrAntennaDynamicFields.innerHTML = fttrAntennaFieldsHTML;
+                            attachBarcodeListeners();
+                        });
+                    }
+                };
+
+                // Attaches event listeners for all barcode buttons
+                const attachBarcodeListeners = () => {
+                    const barcodeButtons = document.querySelectorAll('.barcode-button');
+                    barcodeButtons.forEach(button => {
+                        button.addEventListener('click', (event) => {
+                            activeBarcodeField = event.target.closest('div').querySelector('input[type="text"]');
+                            openScanner();
+                        });
+                    });
+                };
+
+                attachNestedListeners();
+                attachBarcodeListeners();
+            };
+
+            // Event listener for the main service type select
+            serviceTypeSelect.addEventListener('change', (event) => {
+                generateFormFields(event.target.value);
+            });
+            
+            // Initial call to set up the form
+            generateFormFields(serviceTypeSelect.value);
+
+            // Barcode Scanner Functions
+            const openScanner = () => {
+                barcodeScannerModal.classList.remove('hidden');
+                Quagga.init({
+                    inputStream: {
+                        name: "Live",
+                        type: "LiveStream",
+                        target: document.querySelector('#interactive.viewport')
+                    },
+                    decoder: {
+                        readers: ["code_128_reader", "ean_reader", "ean_8_reader", "code_39_reader", "code_39_vin_reader", "codabar_reader", "upc_reader", "upc_e_reader", "i2of5_reader"]
+                    }
+                }, function (err) {
+                    if (err) {
+                        console.error('Quagga initialization error:', err);
+                        return;
+                    }
+                    Quagga.start();
+                });
+
+                Quagga.onDetected(function (data) {
+                    if (data && data.codeResult && activeBarcodeField) {
+                        activeBarcodeField.value = data.codeResult.code;
+                        scanResultDiv.textContent = `تم المسح بنجاح: ${data.codeResult.code}`;
+                        closeScanner();
+                    }
+                });
+            };
+
+            const closeScanner = () => {
+                if (Quagga) {
+                    Quagga.stop();
+                }
+                barcodeScannerModal.classList.add('hidden');
+                scanResultDiv.textContent = '';
+                activeBarcodeField = null;
+            };
+
+            // Camera Functions
+            const openCamera = async () => {
+                try {
+                    videoStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+                    cameraView.srcObject = videoStream;
+                    cameraModal.classList.remove('hidden');
+                } catch (err) {
+                    console.error('Error accessing camera:', err);
+                    showMessage('خطأ في الوصول إلى الكاميرا: يرجى التحقق من الأذونات.', 'error');
+                }
+            };
+
+            const closeCamera = () => {
+                if (videoStream) {
+                    videoStream.getTracks().forEach(track => track.stop());
+                }
+                cameraModal.classList.add('hidden');
+            };
+
+            const capturePhoto = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = cameraView.videoWidth;
+                canvas.height = cameraView.videoHeight;
+                const context = canvas.getContext('2d');
+                context.drawImage(cameraView, 0, 0, canvas.width, canvas.height);
+                const imageDataUrl = canvas.toDataURL('image/jpeg');
+                capturedPhotos.push(imageDataUrl);
+                renderPhotoPreview();
+                closeCamera();
+            };
+
+            const renderPhotoPreview = () => {
+                photoPreview.innerHTML = '';
+                capturedPhotos.forEach((dataUrl, index) => {
+                    const imgContainer = document.createElement('div');
+                    imgContainer.className = 'relative group w-24 h-24 overflow-hidden rounded-lg';
+                    imgContainer.innerHTML = `
+                        <img src="${dataUrl}" alt="Captured Photo" class="w-full h-full object-cover">
+                        <button type="button" class="absolute top-1 right-1 bg-red-600 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity remove-photo-button" data-index="${index}">
+                            <i class="fas fa-times text-xs"></i>
+                        </button>
+                    `;
+                    photoPreview.appendChild(imgContainer);
+                });
+            };
+
+            const removePhoto = (indexToRemove) => {
+                capturedPhotos.splice(indexToRemove, 1);
+                renderPhotoPreview();
+            };
+
+            // Event listeners for UI buttons
+            closeScannerBtn.addEventListener('click', closeScanner);
+            openCameraButton.addEventListener('click', openCamera);
+            closeCameraBtn.addEventListener('click', closeCamera);
+            captureButton.addEventListener('click', capturePhoto);
+
+            photoPreview.addEventListener('click', (event) => {
+                if (event.target.closest('.remove-photo-button')) {
+                    const index = parseInt(event.target.closest('.remove-photo-button').dataset.index, 10);
+                    removePhoto(index);
+                }
+            });
+            
+            // File input change listener for uploads
+            document.getElementById('photos').addEventListener('change', (event) => {
+                const files = event.target.files;
+                for (const file of files) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        capturedPhotos.push(e.target.result);
+                        renderPhotoPreview();
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Form Submission Logic
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                loadingIndicator.classList.remove('hidden');
+                messageBox.classList.add('hidden');
+                
+                const formData = new FormData();
+                const formElements = form.querySelectorAll('input, select, textarea');
+                
+                formElements.forEach(element => {
+                    if (element.id !== 'photos') {
+                        formData.append(element.name, element.value);
+                    }
+                });
+
+                // Append captured photos
+                capturedPhotos.forEach((photoDataUrl, index) => {
+                    formData.append(`photo_${index}`, photoDataUrl);
+                });
+
+                try {
+                    const response = await fetch(GOOGLE_APP_SCRIPT_URL, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        showMessage('تم إرسال الطلب بنجاح!', 'success');
+                        form.reset();
+                        capturedPhotos = [];
+                        renderPhotoPreview();
+                        generateFormFields(serviceTypeSelect.value); // Reset dynamic fields
+                    } else {
+                        throw new Error('فشل إرسال النموذج. يرجى المحاولة مرة أخرى.');
+                    }
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    showMessage(error.message, 'error');
+                } finally {
+                    loadingIndicator.classList.add('hidden');
+                }
+            });
+
+            const showMessage = (message, type) => {
+                messageBox.textContent = message;
+                if (type === 'success') {
+                    messageBox.className = 'mt-6 p-4 rounded-lg text-center bg-green-100 text-green-700';
+                } else {
+                    messageBox.className = 'mt-6 p-4 rounded-lg text-center bg-red-100 text-red-700';
+                }
+                messageBox.classList.remove('hidden');
+            };
+        });
+    </script>
+</body>
+</html>
