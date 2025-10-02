@@ -1020,6 +1020,958 @@ const quizQuestions = [
     ],
     "correctAnswer": "D",
     "explanation": "Rebreathing of expired gases (e.g., stuck open expiratory or inspiratory\nvalves), faulty removal of CO2 from the CO2 absorber (e.g., exhausted CO2\nabsorber, channeling through a CO2 absorber, or having the CO2 absorber\nbypassed—an option in some older anesthetic machines), or addition of CO2\nfrom a gas supply (rarely done with current anesthetic machines) can all\nincrease inspired CO2 . The absorption of CO2 during laparoscopic surgery\nwhen CO2 is used as the abdominal distending gas will increase absorption of\nCO2 but will not cause an increase in inspired CO2 . (Miller: Miller’s\nAnesthesia, ed 8, pp 1551 –1559)."
+  },
+   {
+    "id": 91,
+    "question": "A 29-year-old man is admitted to the intensive care unit (ICU) after a drug\noverdose. The patient is placed on a ventilator with a set tidal volume (Vt ) of\n750 mL at a rate of 10 breaths/min. The patient is making no inspiratory effort.\nThe measured minute ventilation is 6 L, and the peak airway pressure is 30 cm\nH2 O. What is the compression factor for this ventilator delivery circuit?",
+    "options": [
+      "2 mL/(cm H2 O)",
+      "3 mL/(cm H2 O)",
+      "4 mL/(cm H2 O)",
+      "5 mL/(cm H2 O)"
+    ],
+    "correctAnswer": "D",
+    "explanation": "A volume-cycled ventilator set to deliver a volume of 750 mL at a rate of\n10/min would deliver a minute ventilation of 7.5 L. The measured minute\nventilation, however, is only 6 L; therefore, 1.5 L must be absorbed by the\nbreathing circuit. This volume is known as the compression volume. If one\ndivides the volume by 10 (number of breaths/min), then one determines the\ncompression volume/breath. This number (mL) can be further divided by the\npeak inflation pressure (cm H2 O) to determine the actual compression factor,\nwhich in this case is 5 mL/(cm H2 O) (Miller: Basics of Anesthesia, ed 7, pp\n230–231; Ehrenwerth: Anesthesia Equipment Principles and Applications, p\n364)."
+  },
+  {
+    "id": 92,
+    "question": "A 65-year-old patient is mechanically ventilated in the intensive care unit\n(ICU) after an open nephrectomy. How far should the suction catheter be\ninserted into the endotracheal tube for suctioning?",
+    "options": [
+      "To the midlevel of the endotracheal tube",
+      "To the tip of the endotracheal tube",
+      "Just proximal to the carina",
+      "Past the carina"
+    ],
+    "correctAnswer": "B",
+    "explanation": "Endotracheal tubes frequently become partially or completely occluded\nwith secretions. Periodic suctioning of the endotracheal tube in the ICU\nassures patency of the artificial airway. There are hazards, however, of\nendotracheal tube suctioning. They include mucosal trauma, cardiac\ndysrhythmias, hypoxia, increased intracranial pressure, colonization of the\ndistal airway, and psychological trauma to the patient. To reduce the possibility\nof colonization of the distal airway, it is prudent to keep the suction catheter\nwithin the endotracheal tube during suctioning. Pushing the suctioning catheter\nbeyond the distal limits of the endotracheal tube also may produce suctioning\ntrauma to the tracheal tissue (Tobin: Principles and Practices of Mechanical\nVentilation, ed 3, p 1223; Hagberg: Hagberg and Benumof’s Airway\nManagement, ed 4, p 796; Goldsmith: Assisted Ventilation of the Neonate, ed\n6, p 302) ."
+  },
+  {
+    "id": 93,
+    "question": "Maximizing which of the following lung parameters is the most important\nfactor in prevention of postoperative pulmonary complications?",
+    "options": [
+      "Tidal volume (Vt )",
+      "Inspiratory reserve volume",
+      "Vital capacity",
+      "Functional residual capacity (FRC)"
+    ],
+    "correctAnswer": "D",
+    "explanation": "(Please see diagram and table for explanation with Question 102.) FRC is\ncomposed of expiratory reserve volume plus residual volume. It is essential to\nmaximize FRC in the postoperative period to ensure that it will be greater than\nclosing volume. Closing volume is that lung volume at which small-airway\nclosure begins to occur. Maximizing FRC, therefore, reduces atelectasis and\nlessens the incidence of arterial hypoxemia and pneumonia. Maneuvers aimed\nat increasing FRC include early ambulation, incentive spirometry, deep\nbreathing, and intermittent positive-pressure breathing (Barash: Clinical\nAnesthesia, ed 8, p 376) ."
+  },
+  {
+    "id": 94,
+    "question": "An 83-year-old woman is admitted to the ICU after coronary artery surgery. A\npulmonary artery catheter is in place and yields the following data: central\nvenous pressure (CVP) 5 mm Hg, cardiac output (CO) 4.0 L/min, mean\narterial pressure (MAP) 90 mm Hg, mean pulmonary artery pressure (PAP) 20\nmm Hg, pulmonary artery occlusion pressure (PAOP) 12 mm Hg, and heart\nrate 90. Calculate this patient’s pulmonary vascular resistance (PVR).",
+    "options": [
+      "40 dyne-sec/cm5",
+      "80 dyne-sec/cm5",
+      "160 dyne-sec/cm5",
+      "200 dyne-sec/cm5"
+    ],
+    "correctAnswer": "C",
+    "explanation": "where PVR is the pulmonary vascular resistance, PAPmean is the mean\npulmonary artery pressure, PAOP is the mean pulmonary capillary occlusion\npressure, and CO is the cardiac output.\nThe normal range for PVR is 50 to 150 dyne-sec/cm5 (Miller: Miller’s\nAnesthesia, ed 8, pp 1460–1461; Barash: Clinical Anesthesia, ed 8, p 1708) ."
+  },
+  {
+    "id": 95,
+    "question": "A 72-year-old man with a history of myocardial infarction 12 months earlier is\nscheduled to undergo elective repair of a 6-cm abdominal aortic aneurysm\nunder general anesthesia. When would this patient be at highest risk for\nanother myocardial infarction?",
+    "options": [
+      "During placement of the aortic cross-clamp",
+      "Upon release of the aortic cross-clamp",
+      "24 hours postoperatively",
+      "On the third postoperative day"
+    ],
+    "correctAnswer": "D",
+    "explanation": "For reasons that are not fully understood, patients who have sustained a\nmyocardial infarction and subsequently undergo surgery are most likely to have\nanother infarction 48 to 72 hours postoperatively, so the third postoperative day\nis the most likely of the choices listed. (Miller: Basics of Anesthesia, ed 7, p\n417) ."
+  },
+  {
+    "id": 96,
+    "question": "Calculate the body mass index (BMI) of a man 200 cm (6 feet 6 inches) tall\nwho weighs 100 kg (220 lb).",
+    "options": [
+      "20",
+      "25",
+      "30",
+      "35"
+    ],
+    "correctAnswer": "B",
+    "explanation": "Calculation of BMI for adults (> 20 years of age) can help identify patients\nwho are underweight (BMI < 18.5), normal weight (BMI 18.5-24.9),\noverweight (BMI 25-29.9), class 1 obesity (BMI 30-34.9), class 2 obesity\n(BMI 35-39.9), class 3 obesity (BMI 40-49.9), and the superobese (BMI > 50).\nAll major organ systems are affected as a consequence of obesity. The greatest\nconcerns for the anesthesiologist are, however, related to the heart and lungs.\nCardiac output must increase about 0.1 L/min for each extra kilogram of\nadipose tissue. As a consequence, obese patients frequently are hypertensive,\nand many ultimately develop cardiomegaly and left-sided heart failure. FRC is\nreduced in obese patients, and management of the airway often can be difficult\n(Miller: Miller’s Anesthesia, ed 8, pp 2200–2201; Barash: Clinical\nAnesthesia, ed 8, p 1278) ."
+  },
+  {
+    "id": 97,
+    "question": "The normal FEV1 /FVC ratio is",
+    "options": [
+      "0.99",
+      "0.80",
+      "0.60",
+      "0.50"
+    ],
+    "correctAnswer": "B",
+    "explanation": "The forced expiratory volume in 1 second (FEV1 ) is the total volume of\nair that can be exhaled in the first second. Normal healthy adults can exhale\napproximately 75% to 85% of their forced vital capacity (FVC) in the first\nsecond, 94% in 2 seconds, and 97% in 3 seconds. Therefore the normal FEV1\n/FVC ratio is 0.75 or higher. In the presence of obstructive airway disease, the\nFEV1 /FVC ratio less than 70% reflects mild obstruction, less than 60%\nmoderate obstruction, and less than 50% severe obstruction. This ratio can be\nused to determine the severity of obstructive airway disease and to monitor the\nefficacy of bronchodilator therapy (Barash: Clinical Anesthesia, ed 8, p 377) ."
+  },
+  {
+    "id": 98,
+    "question": "Direct current (DC) cardioversion is not useful and, therefore, NOT indicated\nin an unstable patient with which of the following?",
+    "options": [
+      "Supraventricular tachycardia in a patient with Wolff-Parkinson-",
+      "ite syndrome",
+      "Atrial flutter",
+      "Multifocal atrial tachycardia (MAT)",
+      "New-onset atrial fibrillation"
+    ],
+    "correctAnswer": "C",
+    "explanation": "MAT is a non-reentrant, ectopic atrial rhythm often seen in patients with\nchronic obstructive pulmonary disease (COPD). It is frequently confused with\natrial fibrillation but, in contrast to atrial fibrillation, atrial flutter, and\nparoxysmal supraventricular tachycardia, DC cardioversion is ineffective in\nconverting it to normal sinus rhythm. Ectopic atrial tachydysrhythmias are not\namenable to cardioversion because they lack the re-entrant mechanism, which\nis necessary for successful termination with electrical counter shock (Page et\nal.: 2015 ACC/AHA/HRS Guideline for the Management of Adult Patients\nWith Supraventricular Tachycardia: A Report of the American College of\nCardiology/American Heart Association Task Force on Clinical Practice\nGuidelines and the Hearth Rhythm Society , Circulation 133:e506, 2016) ."
+  },
+  {
+    "id": 99,
+    "question": "During the first minute of apnea, the Paco 2 will rise",
+    "options": [
+      "2 mm Hg/min",
+      "4 mm Hg/min",
+      "6 mm Hg/min",
+      "8 mm Hg/min"
+    ],
+    "correctAnswer": "C",
+    "explanation": "During apnea, the Paco 2 will increase approximately 6 mm Hg during the\nfirst minute and then 3 to 4 mm Hg each minute thereafter (Miller: Basics of\nAnesthesia, ed 7, pp 64–65) ."
+  },
+  {
+    "id": 100,
+    "question": "Potential complications associated with total parenteral nutrition (TPN)\ninclude all of the following EXCEPT",
+    "options": [
+      "Ketoacidosis",
+      "Hyperglycemia",
+      "Hypoglycemia",
+      "Hypophosphatemia"
+    ],
+    "correctAnswer": "A",
+    "explanation": "TPN therapy is associated with numerous potential complications. Blood\nsugars need to be carefully monitored because hyperglycemia may develop due\nto the high glucose load and require treatment with insulin, and hypoglycemia\nmay develop if TPN is abruptly stopped (i.e., infusion turned off or mechanical\nobstruction in the IV tubing). Other complications include electrolyte\ndisturbances (e.g., hypokalemia, hypophosphatemia, hypomagnesemia,\nhypocalcemia), volume overload, catheter-related sepsis, renal and hepatic\ndysfunction, thrombosis of the central veins, and nonketotic hyperosmolar\ncoma. Increased work of breathing is related to increased production of CO2 ,\nmost frequently due to overfeeding. Acidosis in these patients is\nhyperchloremic metabolic acidosis resulting from formation of HCl during\nmetabolism of amino acids. Ketoacidosis is not associated with TPN therapy\n(Miller: Basics of Anesthesia, ed 7, p 499) ."
+  },
+  {
+    "id": 101,
+    "question": "O2 requirement for a 70-kg adult is",
+    "options": [
+      "150 mL/min",
+      "250 mL/min",
+      "350 mL/min",
+      "450 mL/min"
+    ],
+    "correctAnswer": "B",
+    "explanation": "The O2 requirement for an adult is 3 to 4 mL/kg/min. The O2 requirement\nfor a newborn is 7 to 9 mL/kg/min. Alveolar ventilation (VA ) in neonates is\ndouble that of adults to help meet their increased O2 requirements. This\nincrease in VA is achieved primarily by an increase in respiratory rate as Vt is\nsimilar to that of adults (i.e., 7 mL/kg). Although CO2 production also is\nincreased in neonates, the elevated VA maintains the Paco 2 near 38 to 40 mm\nHg (Barash: Clinical Anesthesia, ed 8, p 1181) ."
+  },
+  {
+    "id": 102,
+    "question": "The FRC is composed of the",
+    "options": [
+      "Expiratory reserve volume and residual volume",
+      "Inspiratory reserve volume and residual volume",
+      "Inspiratory capacity and vital capacity",
+      "Expiratory capacity and Vt"
+    ],
+    "correctAnswer": "A",
+    "explanation": "A comprehensive understanding of respiratory physiology is important for\nunderstanding the effects of both regional and general anesthesia on\nrespiratory mechanics and pulmonary gas exchange. The volume of gas\nremaining in the lungs after a normal expiration is called the functional\nresidual capacity. The volume of gas remaining in the lungs after a maximal\nexpiration is called the residual volume. The difference between these two\nvolumes is called the expiratory reserve volume. Therefore the FRC is\ncomposed of the expiratory reserve volume and residual volume (Barash:\nClinical Anesthesia, ed 8, p 376) .\nLung Volumes and Capacities\nMeasurement Abbreviation Normal Adult Value\nTidal volume Vt 500 mL (6-8 mL/kg)\nInspiratory reserve volume IRV 3000 mL\nExpiratory reserve volume ERV 1200 mL\nResidual volume RV 1200 mL\nInspiratory capacity IC 3500 mL\nFunctional residual capacity FRC 2400 mL\nVital capacity VC 4500 mL (60-70 mL/kg)\nForced exhaled volume in 1 sec FEV1 80%\nTotal lung capacity TLC 5900 mL\n(From Stoelting RK: Pharmacology and Physiology in Anesthetic Practice, ed 3, Philadelphia,\nLippincott Williams & Wilkins, 1999.)"
+  },
+  {
+    "id": 103,
+    "question": "Which of the following statements correctly defines the relationship between\nminute ventilation , dead space ventilation and Paco 2 ?",
+    "options": [
+      "If is constant and increases, then Paco 2 will increase",
+      "If is constant and increases, then Paco 2 will decrease",
+      "If is constant and increases, then Paco 2 will increase",
+      "If is constant and decreases, then Paco 2 will decrease"
+    ],
+    "correctAnswer": "A",
+    "explanation": "The volume of gas in the conducting airways of the lungs (and not\navailable for gas exchange) is called the anatomic dead space. The volume of\ngas in ventilated alveoli that is unperfused (and not available for gas exchange)\nis called the functional dead space. The anatomic dead space together with the\nfunctional dead space is called the physiologic dead space. Physiologic dead\nspace ventilation (VD ) can be calculated by the Bohr dead space equation,\nwhich is mathematically expressed as follows:\nwhere VD /Vt is the ratio of VD to Vt , and a and E represent arterial and\nmixed expired, respectively. Of the choices given, only the first is correct. A\nlarge increase in VD will result in an increase in Paco 2 (West: Respiratory\nPhysiology, ed 9, pp 19–21; Miller: Miller’s Anesthesia, ed 8, pp 446–447;\nBarash: Clinical Anesthesia, ed 8, pp 373–374) ."
+  },
+  {
+    "id": 104,
+    "question": "A 22-year-old patient who sustained a closed head injury is brought to the\noperating room (OR) from the ICU for placement of a dural bolt. Hemoglobin\nhas been stable at 15 g/dL. Blood gas analysis immediately before induction\nreveals a Pao 2 of 120 mm Hg and an arterial saturation of 100%. After\ninduction, the Pao 2 rises to 150 mm Hg and the saturation remains the same.\nHow has the oxygen content of this patient’s blood changed?",
+    "options": [
+      "It has increased by 10%",
+      "It has increased by 5%",
+      "It has increased by less than 1%",
+      "Cannot be determined without Paco 2"
+    ],
+    "correctAnswer": "C",
+    "explanation": "The oxygen content of blood can be calculated with the following formula\nO2 content = 1.39 × [Hgb] × SaO2 + (0.003 × PaO2 )\nFirst oxygen content = (1.39 × 15 × 1.0) + 0.003 × 120 = 21.2mL/dL\nSecond oxygen content = (1.39 × 15 × 1.0) + 0.003 × 150 = 21.30mL/dL\nThe difference in the oxygen content is 0.09 mL/dL. This represents a change\nof 0.42% (Barash: Clinical Anesthesia, ed 8, p 432) ."
+  },
+  {
+    "id": 105,
+    "question": "Inhalation of CO2 increases by",
+    "options": [
+      "0.5 L/min/mm Hg increase in Paco 2",
+      "1 to 1.5 L/min/mm Hg increase in Paco 2",
+      "2 to 2.5 L/min/mm Hg increase in Paco 2",
+      "Greater than 3 L/min/mm Hg increase in Paco 2"
+    ],
+    "correctAnswer": "B",
+    "explanation": "The degree of ventilatory depression caused by volatile anesthetics can be\nassessed by measuring resting Paco 2 , the ventilatory response to hypercarbia,\nand the ventilatory response to hypoxemia. Of these techniques, the resting\nPaco 2 is the most frequently used index. However, measuring the effects of\nincreased Paco 2 on ventilation is the most sensitive method of quantifying the\neffects of drugs on ventilation. In awake unanesthetized humans, inhalation of\nCO2 increases minute ventilation ( ) by approximately 1 to 1.5 L/min/mm\nHg increase in Paco 2 . Using this technique, halothane, isoflurane, desflurane-\nO2 , desflurane-N2 O, and N2 O cause a dose-dependent depression of the\nventilation (Miller: Basics of Anesthesia, ed 7, p 67) ."
+  },
+  {
+    "id": 106,
+    "question": "The RIFLE criteria are designed to predict mortality from",
+    "options": [
+      "Renal failure",
+      "Sepsis",
+      "Hepatic failure",
+      "Acute respiratory distress syndrome"
+    ],
+    "correctAnswer": "A",
+    "explanation": "To create a uniform definition of acute renal insufficiency, the Acute\nDialysis Quality Initiative (ADQI) group was convened and, in 2004, proposed\nthe RIFLE (Risk, Injury, Failure, Loss, and End-stage renal disease) criteria.\nRIF refers to the three levels of renal dysfunction; LE refers to clinical\noutcomes. The first three criteria have two parts: glomerular filtration rate\n(GFR) criteria and urine output (UO) criteria.\nR isk of renal dysfunction a. Increased serum creatinine > 1.5 × baseline or\nGFR is decreased > 25%\nb. Urine Output < 0.5 mL/kg/hr for 6 hours\n(In-hospital mortality Odds Ratio of 2.2)\nI njury to the kidney a. Increased serum creatinine > 2 × baseline or GFR is\ndecreased > 50%\nb. Urine Output < 0.5 mL/kg/hr for 12 hours\n(In-hospital mortality Odds Ratio of 6.1)\nF ailure of kidney function a. Increased serum creatinine > 3 × baseline or\nGFR is decreased > 75% or creatinine > 4 mg/dL\nb. Urine Output < 0.3 mL/kg/hr for 24 hours or anuria for 12 hours\n(In-hospital mortality Odds Ratio of 8.6)\nL oss of kidney function- Complete loss of renal function for > 4 weeks (need\nfor renal replacement therapy for > 4 weeks)\nE nd Stage Renal Disease- End-stage disease (need for dialysis for > 3 months)\n(Barash Clinical Anesthesia, 8th ed, p 1529; Miller: Anesthesia, ed 7, p 717;\nMiller: Anesthesia, ed 8, pp 3047–3048)"
+  },
+  {
+    "id": 107,
+    "question": "Each of the following will cause erroneous readings by dual-wavelength pulse\noximeters EXCEPT",
+    "options": [
+      "Carboxyhemoglobin",
+      "Methylene blue",
+      "Fetal hemoglobin",
+      "Methemoglobin",
+      "rom Miller RD: Miller’s Anesthesia, ed 7, Philadelphia, Saunders, 2011, Figure 15-4. Courtesy",
+      "e editor of the BMJ series: Respiratory Measurement.)"
+    ],
+    "correctAnswer": "C",
+    "explanation": "The presence of hemoglobin species other than oxyhemoglobin can cause\nerroneous readings by dual-wavelength pulse oximeters. Hemoglobin species\nsuch as carboxyhemoglobin and methemoglobin, dyes such as methylene blue\nand indocyanine green, and some colors of nail polish will cause erroneous\nreadings. Because the absorption spectrum of fetal hemoglobin is similar to\nthat of adult oxyhemoglobin, fetal hemoglobin does not significantly affect the\naccuracy of these types of pulse oximeters. High levels of bilirubin have no\nsignificant effect on the accuracy of dual-wavelength pulse oximeters but may\ncause falsely low readings by nonpulsatile oximeters (Miller: Miller’s\nAnesthesia, ed 8, pp 1545–1547; Yao & Artusio: Anesthesiology, ed 8, pp\n1097–1098) ."
+  },
+  {
+    "id": 108,
+    "question": "In the diagram above, curve “D” represents",
+    "options": [
+      "Emphysema",
+      "Chronic bronchitis",
+      "Normal lungs",
+      "Fibrotic lungs"
+    ],
+    "correctAnswer": "D",
+    "explanation": "This graph depicts lung volumes as a function of pressure or compliance;\none kPa is roughly equal to 10 cm H2 O. Curve A shows an enormous volume\nwith a small pressure (i.e., emphysema). Curve B depicts chronic bronchitis or\nasthma. The compliance curve is roughly the same as the normal lung, curve\nC, but volumes have increased. Curve D depicts stiff noncompliant lungs as\nseen with fibrosis or ARDS (Miller: Miller’s Anesthesia, ed 8, pp 447–448;\nBarash: Clinical Anesthesia, ed 8, pp 364–365) ."
+  },
+  {
+    "id": 109,
+    "question": "The P50 for normal adult hemoglobin is approximately",
+    "options": [
+      "15 mm Hg",
+      "25 mm Hg",
+      "35 mm Hg",
+      "45 mm Hg"
+    ],
+    "correctAnswer": "B",
+    "explanation": "P50 is the Pao 2 required to produce 50% saturation of hemoglobin. The P50\nfor adult hemoglobin at a pH of 7.4 and body temperature of 37° C is 26 mm\nHg (Miller: Basics of Anesthesia, ed 7, p 59) ."
+  },
+  {
+    "id": 110,
+    "question": "During a normal VT (500-mL) breath, the transpulmonary pressure increases\nfrom 0 to 5 cm H2 O. The product of transpulmonary pressure and Vt is 2500\ncm H2 O-mL. This expression of the pressure-volume relationship during\nbreathing determines what parameter of respiratory mechanics?",
+    "options": [
+      "Lung compliance",
+      "Airway resistance",
+      "Pulmonary elastance",
+      "Work of breathing"
+    ],
+    "correctAnswer": "B",
+    "explanation": "The work of breathing is defined as the product of transpulmonary\npressure and Vt . The work of breathing is related to two factors: the work\nrequired to overcome the elastic forces of the lungs, and the work required to\novercome airflow or frictional resistances of the airways (Miller: Miller’s\nAnesthesia, ed 8, p 1563; Barash: Clinical Anesthesia, ed 8, p 365) ."
+  },
+  {
+    "id": 111,
+    "question": "Select the true statement regarding palliative care",
+    "options": [
+      "It increases in-hospital cost",
+      "It is reserved for patients with life expectancy less than 6 months",
+      "It is not appropriate for patients in the ICU",
+      "It can be used in conjunction with “aggressive” care"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Palliative care is an approach provided by a team of physicians, nurses,\nsocial workers, and other health care professionals to help patients with lifethreatening\nillnesses improve their quality of life. Palliative care is not limited\nto patients who are expected to die within 6 months. Goals are directed to help\nwith the patient’s pain, anxiety, and depression, as well as to provide family\nsupport. Inpatient palliative care teams have been shown to decrease inpatient\nhospital costs for patients who are discharged from the hospital, as well as for\npatients who have died in the hospital. In addition, there were fewer deaths in\nthe ICU after palliative care programs were started. Initially, these care teams\nfocused on medical ICUs, but now include surgical ICUs as well as outpatient\nclinics. Palliative care is appropriate at any stage of a serious illness and can be\nused in conjunction with “aggressive” care. Hospice care has several\nsimilarities to palliative care but usually refers to care for patients on homebased\ncare with a life expectancy < 6 months. In the United States 80% of the\nfees for hospice care are paid by Medicare. Most of the care of patients with\nhospice care is by a nurse, with physician oversight ( Miller: Anesthesia, ed 8,\npp 1919– 1924)."
+  },
+  {
+    "id": 112,
+    "question": "The normal vital capacity for a 70-kg man is",
+    "options": [
+      "1 L",
+      "2 L",
+      "5 L",
+      "7 L"
+    ],
+    "correctAnswer": "C",
+    "explanation": "The volume of gas exhaled during a maximum expiration is the vital\ncapacity. In a normal healthy adult, the vital capacity is 60 to 70 mL/kg. In a\n70-kg patient, the vital capacity is approximately 5 L (Barash: Clinical\nAnesthesia, ed 8, p 376)."
+  },
+  {
+    "id": 113,
+    "question": "A 32-year-old man is found unconscious by the fire department in a room\nwhere he has inhaled 0.1% carbon monoxide for a prolonged period. His\nrespiratory rate is 42 breaths/min, but he is not cyanotic. Carbon monoxide has\nincreased this patient’s minute ventilation by which of the following\nmechanisms?",
+    "options": [
+      "Shifting the O2 hemoglobin dissociation curve to the left",
+      "Increasing CO2 production",
+      "Causing lactic acidosis",
+      "Decreasing Pao 2"
+    ],
+    "correctAnswer": "C",
+    "explanation": "Carbon monoxide inhalation is the most common immediate cause of\ndeath from fire. Carbon monoxide binds to hemoglobin with an affinity 200\ntimes greater than that of oxygen. For this reason, very small concentrations of\ncarbon monoxide can greatly reduce the oxygen-carrying capacity of blood. In\nspite of this, the arterial Pao 2 often is normal. Because the carotid bodies\nrespond to arterial Pao 2 , there would not be an increase in minute ventilation\nuntil tissue hypoxia was sufficient to produce lactic acidosis (Miller: Miller’ s\nAnesthesia, ed 8, pp 2679– 2680; West: Respiratory Physiology, ed 9, pp 80–\n82; Barash: Clinical Anesthesia, ed 8, p 368; Miller: Basics of Anesthesia, ed\n7, p 742)."
+  },
+  {
+    "id": 114,
+    "question": "An acute increase in Paco 2 of 10 mm Hg will result in a decrease in pH of",
+    "options": [
+      "0.01 pH unit",
+      "0.02 pH unit",
+      "0.04 pH unit",
+      "0.08 pH unit"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Respiratory acidosis is present when the Paco 2 exceeds 44 mm Hg.\nRespiratory acidosis is caused by decreased elimination of CO2 by the lungs\n(i.e., hypoventilation) or increased metabolic production of CO2 . An acute\nincrease in Paco 2 of 10 mm Hg will result in a decrease in pH of\napproximately 0.08 pH unit. The acidosis of arterial blood will stimulate\nventilation via the carotid bodies, and the acidosis of cerebrospinal fluid will\nstimulate ventilation via the medullary chemoreceptors located in the fourth\ncerebral ventricle. Volatile anesthetics greatly attenuate the carotid body–\nmediated and aortic body– mediated ventilatory responses to arterial acidosis,\nbut they have little effect on the medullary chemoreceptor– mediated\nventilatory response to cerebrospinal fluid acidosis (Miller: Basics of\nAnesthesia, ed 7, p 372)."
+  },
+  {
+    "id": 115,
+    "question": "A 22-year-old college student with a history of complex regional pain\nsyndrome (CRPS) in the left foot and ankle after a football injury is\nanesthetized for laparoscopic cholecystectomy. He reports allergy to penicillin\nand is treated for chronic pain with paroxetine (Paxil) and gabapentin\n(Neurontin) and indomethacin prn. He received fentanyl as the primary\nnarcotic during his operation to facilitate early discharge. In the PACU he is\nshivering and has BP 183/98 mm Hg with pulse 121. He receives 15 mg\nmeperidine; shivering persists. He reports minimal 3/10 pain. The best option\nat this juncture would be",
+    "options": [
+      "Repeat meperidine",
+      "Labetalol",
+      "Lorazepam (Ativan)",
+      "Dantrolene"
+    ],
+    "correctAnswer": "C",
+    "explanation": "Paroxetine is a selective serotonin receptor inhibitor (SSRI) and if\nmeperidine is administered, you can induce a serotonin syndrome. Treatment\nconsists of supportive care and since the patient has signs of serotonin\nsyndrome, the best medication treatment listed would be the benzodiazepine\nlorazepam (Ativan). Cyproheptadine, which binds to serotonin receptors, is a\nbetter medication to treat serotonin syndrome but is only available for oral use.\nSerotonin syndrome is a potentially life-threatening condition associated with\nincreasing serotonergic neurotransmission, commonly associated with two or\nmore serotonergic agents. Signs include altered mentation, tremor, clonus,\ndiaphoresis, and hyperthermia. Severe disease is associated with DIC,\nrhabdomyolysis, myoglobinuria, renal failure, and ARDS. Treatment includes\ncessation of all serotonergic agents, treatment with benzodiazepines, and, if\nnecessary, serotonergic antagonists (Hines: Stoelting's Anesthesia and Co-\nExisting Disease, 7th ed pp 613–614)."
+  },
+  {
+    "id": 116,
+    "question": "The following blood gases would best be explained by which disorder?\npH 7.18, Paco 2 25 mm Hg, HCO3 − 11 mEq/L",
+    "options": [
+      "Aspirin overdose",
+      "Nasogastric suction",
+      "Chloride wasting diarrhea",
+      "Hyperaldosteronism"
+    ],
+    "correctAnswer": "A",
+    "explanation": "The acid-base disorder described above is a metabolic acidosis with\ncompensatory respiratory alkalosis. If the anion gap were measured, you\nwould also see an increased anion gap (> 22 mEq/L). The only item listed\nabove that causes a metabolic acidosis is aspirin toxicity. The other items in\nthe question all cause a metabolic alkalosis (Hines: Stoelting Anesthesia and\nCo-Existing Disease, ed 7, pp 422– 423)."
+  },
+  {
+    "id": 117,
+    "question": "The diagram below depicts which mode of ventilation?",
+    "options": [
+      "Spontaneous ventilation",
+      "Controlled ventilation",
+      "Assisted ventilation",
+      "Assisted/controlled ventilation"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Mechanical ventilation of the lungs can be accomplished by various\nmodes. These modes are categorized as controlled, assisted,\nassisted/controlled, controlled with positive end-expiratory pressure (PEEP),\nand assisted/controlled using intermittent mandatory ventilation (IMV).\nAssisted/controlled modes of mechanical ventilation are used in patients when\nthe muscles of respiration require rest\n(From Stoelting RK, Dierdorf SF: Anesthesia and Co-Existing Disease, ed 4, New\nYork, Churchill Livingstone, 2001.)\nbecause minimal breathing efforts are required. With the assisted/controlled\nmode of ventilation, positive-pressure ventilation is triggered by small\nbreathing efforts produced by the patient. The airway pressure tracing shown is\ntypical of that of a patient requiring assisted/controlled ventilation (Miller:\nBasics of Anesthesia, ed 7, pp 708– 709)."
+  },
+  {
+    "id": 118,
+    "question": "A 78-year-old man with a 125-pack-year smoking history is brought to the\nICU after total laryngectomy for treatment of his laryngeal squamous cell\ncarcinoma. In the ICU his tracheostomy tube becomes totally occluded and\ncannot be cleared with suctioning. The most appropriate course of action while\nwaiting for the ENT surgeon would be",
+    "options": [
+      "Bag mask or laryngeal mask airway until help arrives",
+      "Attempt to intubate with GlideScope or direct laryngoscopy",
+      "Oral or nasal fiberoptic intubation",
+      "Remove tracheostomy tube and intubate laryngectomy stoma with",
+      "endotracheal tube"
+    ],
+    "correctAnswer": "D",
+    "explanation": "With a total laryngectomy (TL), a tracheostomy is performed and a wirereinforced\nendotracheal tube (ETT) is placed into the trachea early in the\nprocedure. The thyroid gland is usually preserved after dividing the thyroid\nisthmus, and the entire larynx is then resected, with the pharyngeal connection\nto the airway completely closed, making the trachea completely independent\nfrom the oropharynx. The opening of the trachea is sutured to the anterior skin\nof the neck, producing a stoma, and often there is no need to keep the ETT\nplaced in the tracheostomy site intraoperatively for postoperative ventilation.\nHowever, in cases where there is edema at the stomal site or a free flap is\nneeded, an ETT can remain in place or be replaced with a tracheostomy tube\nfor a period of time postoperatively to maintain an adequate opening to the\nairway. If the tracheostomy tube becomes occluded and cannot be opened, it\nneeds to be removed and an ETT or another tracheostomy tube placed via the\nonly opening to the airway, the freshly produced stoma. In placing the ETT, be\ncareful not to place it in too far because the distance from the stoma to the\ncarina is short and one can easily pass the ETT past the carina and enter one\nbronchus (Jaffe: Anesthesiologist’s Manual of Surgical Procedures, ed 5, pp\n203–207; Miller: Miller’s Anesthesia, ed 8, pp 2542–2543) ."
+  },
+  {
+    "id": 119,
+    "question": "The P50 of sickle cell hemoglobin is",
+    "options": [
+      "19 mm Hg",
+      "26 mm Hg",
+      "31 mm Hg",
+      "35 mm Hg"
+    ],
+    "correctAnswer": "C",
+    "explanation": "A P50 less than 26 mm Hg defines a leftward shift of the oxyhemoglobin\ndissociation curve. This means that at any given Pao 2 , hemoglobin has a\nhigher affinity for O2 . A P50 greater than 26 mm Hg describes a rightward\nshift of the oxyhemoglobin dissociation curve. This means that at any given\nPao 2 , hemoglobin has a lower affinity for O2 . Conditions that cause a\nrightward shift of the oxyhemoglobin dissociation curve are metabolic and\ninclude respiratory acidosis, hyperthermia, increased erythrocyte 2,3-\ndiphosphoglycerate (2,3-DPG) content, pregnancy, and abnormal\nhemoglobins, such as sickle cell hemoglobin or thalassemia. Alkalosis,\nhypothermia, fetal hemoglobin, abnormal hemoglobin species, such as\ncarboxyhemoglobin, methemoglobin, and sulfhemoglobin, and decreased\nerythrocyte 2,3-DPG content will cause a leftward shift of the oxyhemoglobin\ndissociation curve. Also see explanation to Question 109 (Miller: Miller’s\nAnesthesia, ed 8, p 1843; West: Respiratory Physiology, ed 9, pp 79–82) ."
+  },
+  {
+    "id": 120,
+    "question": "Data from the ARDS network trial (ARDSNet) showed increased mortality\nfrom",
+    "options": [
+      "Atelectrauma",
+      "Volutrauma",
+      "Barotrauma",
+      "Inhaled nitric oxide"
+    ],
+    "correctAnswer": "B",
+    "explanation": "Adult respiratory distress disorder (ARDS) was first reported in adults in\n1967 and is associated with decreased lung compliance. Initial therapies for\nARDS included mechanical ventilation with tidal volumes of 10 to 15 mL/kg,\nwith rates to achieve a normal pH and Paco 2 . In 2000 the National Institutes\nof Health (NIH) ARDS Network (ARDSNet) trial noted a reduction in\nmortality for patients with ARDS who were ventilated with low tidal volumes\n(6 mL/kg predicted body weight [PBW]—mortality rate of 31%) compared\nwith traditional tidal volumes (12 mL/kg PBW—mortality rate of 40%). It was\nfelt that the larger tidal volumes caused overdistention of the alveoli (i.e.,\nproduced volume trauma or volutrauma). This increased alveolar volume\nresulted in mechanical injury and a systemic inflammatory response. It was felt\nthat the stretch and not the pressure (barotrauma) caused the release of the\ninflammatory cytokinins into the circulation. Because the lower tidal volumes\nused were associated with an elevation of arterial CO2 and lower arterial\noxygen levels, the term “permissive hypercapnia and hypoxemia” was used.\nPatients with ARDS also develop atelectasis. Recruitment maneuvers\n(sustained breaths of increased airway pressures) were used to re-expand\natelectatic alveoli to avoid atelectrauma. However, results with the recruitment\nbreaths showed only a transient increase in oxygenation and no change in\nmortality. Another respiratory technique proposed included the use of inhaled\nnitric oxide (iNO) that can improve ventilation-perfusion mismatch and\nimprove oxygenation. Randomized controlled studies have shown only limited\neffectiveness, with no overall improvement in mortality or duration of\nventilation. Further studies are looking at iNO for specific conditions (e.g.,\nsevere pulmonary hypertension, right ventricular failure, refractory\nhypoxemia) (Miller: Miller’s Anesthesia, ed 8, pp 3040–3044, 3078–3079;\nBarash: Clinical Anesthesia, ed 8, pp 1644–1645) ."
+  },
+  {
+    "id": 121,
+    "question": "Which of the following is the correct mathematical expression of Fick’s law of\ndiffusion of a gas through a lipid membrane ( = rate of diffusion, D =\ndiffusion coefficient of the gas, A = area of the membrane, P1 − P2 =\ntransmembrane partial pressure gradient of the gas, T = thickness of the\nmembrane)?",
+    "options": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "correctAnswer": "C",
+    "explanation": "The rate at which a gas diffuses through a lipid membrane is directly\nproportional to the area of the membrane, the transmembrane partial pressure\ngradient of the gas, and the diffusion coefficient of the gas, and it is inversely\nproportional to the thickness of the membrane. The diffusion coefficient of the\ngas is directly proportional to the square root of gas solubility and is inversely\nproportional to the square root of the molecular weight of the gas. This is\nknown as Fick’s law of diffusion (Barash: Clinical Anesthesia, ed 8, p 1147) ."
+  },
+  {
+    "id": 122,
+    "question": "Each of the following is decreased in elderly patients compared with their\nyounger counterparts EXCEPT",
+    "options": [
+      "Closing volume",
+      "FEV1",
+      "Ventilatory response to hypercarbia",
+      "Vital capacity"
+    ],
+    "correctAnswer": "A",
+    "explanation": "Aging is associated with reduced ventilatory volumes and capacities, and\ndecreased efficiency of pulmonary gas exchange. These changes are caused by\nprogressive stiffening of cartilage and replacement of elastic tissue in the\nintercostal and intervertebral areas, which decreases compliance of the\nthoracic cage. In addition, progressive kyphosis or scoliosis produces upward\nand anterior rotation of the ribs and sternum, which further restricts chest wall\nexpansion during inspiration. With aging, the FRC, residual volume, and\nclosing volume are increased, whereas the vital capacity, total lung capacity,\nmaximum breathing capacity, FEV1 , and ventilatory response to hypercarbia\nand hypoxemia are reduced. In addition, age-related changes in lung\nparenchyma, alveolar surface area, and diminished pulmonary capillary bed\ndensity cause ventilation/perfusion mismatch, which decreases resting Pao 2\n(Miller: Basics of Anesthesia, ed 7, pp 612–614) ."
+  },
+  {
+    "id": 123,
+    "question": "Calculate the VD /Vt ratio (physiologic dead space ventilation) based on the\nfollowing data: Paco 2 45 mm Hg, mixed expired CO2 tension (PEco 2 ) 30 mm\nHg.",
+    "options": [
+      "0.1",
+      "0.2",
+      "0.3",
+      "0.4"
+    ],
+    "correctAnswer": "C",
+    "explanation": "Physiologic dead space ventilation can be estimated using the Bohr\nequation (described in the explanation to Question 103):\n(West: Respiratory Physiology, ed 9, pp 19–21; Miller: Miller’s Anesthesia, ed\n8, pp 446–447; Barash: Clinical Anesthesia, ed 8, p 374) ."
+  },
+  {
+    "id": 124,
+    "question": "Which of the following statements concerning the distribution of O2 and CO2\nin the upright lungs is TRUE ?",
+    "options": [
+      "Pao 2 is greater at the apex than at the base",
+      "Paco 2 is greater at the apex than at the base",
+      "Both Pao 2 and Paco 2 are greater at the apex than at the base",
+      "Both Pao 2 and Paco 2 are greater at the base than at the apex"
+    ],
+    "correctAnswer": "A",
+    "explanation": "The ventilation/perfusion ratio is greater at the apex of the lungs than at\nthe base of the lungs. Thus dependent regions of the lungs are hypoxic and\nhypercarbic compared with the nondependent regions. Also see explanation to\nQuestion 132 (Miller: Miller’s Anesthesia, ed 8, pp 451–454; West:\nRespiratory Physiology, ed 9, pp 21–22, 44–46; Barash: Clinical Anesthesia,\ned 8, p 372) ."
+  },
+  {
+    "id": 125,
+    "question": "Which of the following acid-base disturbances is the least well-compensated?",
+    "options": [
+      "Metabolic alkalosis",
+      "Respiratory alkalosis",
+      "Increased anion gap metabolic acidosis",
+      "Normal anion gap metabolic acidosis"
+    ],
+    "correctAnswer": "A",
+    "explanation": "The degree to which a person can hypoventilate to compensate for\nmetabolic alkalosis is limited; hence, this is the least well-compensated acidbase\ndisturbance. Respiratory compensation for metabolic alkalosis is rarely\nmore than 75% complete. Hypoventilation to a Paco 2 greater than 55 mm Hg\nis the maximum respiratory compensation for metabolic alkalosis. A Paco 2\ngreater than 55 mm Hg most likely reflects concomitant respiratory acidosis\n(Barash: Clinical Anesthesia, ed 8, pp 385–388) ."
+  },
+  {
+    "id": 126,
+    "question": "What is the (calculated) Pao 2 of a patient on room air in Denver, Colorado?\n(Assume a barometric pressure of 630 mm Hg, respiratory quotient of 0.8, and\nPaco 2 of 34 mm Hg.)",
+    "options": [
+      "80 mm Hg",
+      "90 mm Hg",
+      "100 mm Hg",
+      "110 mm Hg"
+    ],
+    "correctAnswer": "A",
+    "explanation": "Pao 2 can be estimated using the alveolar gas equation, which is given as\nfollows:\nwhere Pb is the barometric pressure (mm Hg), Fio 2 is the fraction of inspired\nO2 , Paco 2 is the arterial CO2 tension (mm Hg), and R is the respiratory\nquotient (West: Respiratory Physiology, ed 9, p 59; Barash: Clinical\nAnesthesia, ed 8, p 375) ."
+  },
+  {
+    "id": 127,
+    "question": "A venous blood sample from which of the following sites would correlate most\nreliably with Pao 2 and Paco 2 ?",
+    "options": [
+      "Jugular vein",
+      "Subclavian vein",
+      "Antecubital vein",
+      "Vein on posterior surface of a warmed hand"
+    ],
+    "correctAnswer": "D",
+    "explanation": "When arterial sampling is not possible, “arterialized” venous blood can be\nused to estimate ABG tensions. Because blood in the veins on the back of the\nhands has very little O2 extracted, the O2 content in this blood best\napproximates the O2 content in a sample of blood obtained from an artery\n(Miller: Basics of Anesthesia, ed 7, p 367) ."
+  },
+  {
+    "id": 128,
+    "question": "Which of the following pulmonary function tests is LEAST dependent on\npatient effort?",
+    "options": [
+      "Forced expiratory volume in 1 second (FEV1 )",
+      "Forced vital capacity (FVC)",
+      "FEF 800 to 1200",
+      "FEF 25% to 75%"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Pulmonary function tests can be divided into those that assess ventilatory\ncapacity and those that assess pulmonary gas exchange. The simplest test to\nassess ventilatory capacity is the FEV1 /FVC ratio. Other tests to assess\nventilatory capacity include the maximum midexpiratory flow (FEF 25%-\n75%), MVV, and flow-volume curves. The most significant disadvantage of\nthese tests is that they are dependent on patient effort. However, because the\nFEF 25% to 75% is obtained from the midexpiratory portion of the flowvolume\nloop, it is least dependent on patient effort. Also see explanation to\nQuestion 97 (Barash: Clinical Anesthesia, ed 8, p 377) ."
+  },
+  {
+    "id": 129,
+    "question": "A 33-year-old woman with 20% carboxyhemoglobin is brought to the ER for\ntreatment of smoke inhalation. Which of the following is LEAST consistent\nwith a diagnosis of carbon monoxide poisoning?",
+    "options": [
+      "Cyanosis",
+      "Pao 2 105 mm Hg, oxygen saturation 80% on initial room air",
+      "terial blood gases (ABGs)",
+      "98% oxygen saturation on dual-wavelength pulse oximeter",
+      "Oxyhemoglobin dissociation curve shifted far to the left"
+    ],
+    "correctAnswer": "A",
+    "explanation": "Carbon monoxide binds to hemoglobin with an affinity greater than 200\ntimes that of oxygen. This stabilizes the oxygen– hemoglobin complex and\nhinders release of oxygen to the tissues, leading to a leftward shift of the\noxyhemoglobin dissociation curve. The diagnosis is suggested when there is a\nlow oxygen hemoglobin saturation in the face of a normal Pao 2 . The twowave\npulse oximeter cannot distinguish oxyhemoglobin from\ncarboxyhemoglobin, so that a normal oxyhemoglobin saturation would be\nobserved in the presence of high concentrations of carboxyhemoglobin.\nCarbon monoxide poisoning is not associated with cyanosis. See also\nexplanations for Questions 113 and 140 (Hines: Stoelting’s Anesthesia and Co-\nExisting Disease, ed 7, pp 631–632; Miller: Miller’s Anesthesia, ed 8, pp\n2679–2680; Barash: Clinical Anesthesia, ed 8, p 1519) ."
+  },
+  {
+    "id": 130,
+    "question": "The PAO 2 − PaO 2 of a patient breathing 100% O2 is 240 mm Hg. The\nestimated fraction of the cardiac output shunted past the lungs without\nexposure to ventilated alveoli (i.e., transpulmonary shunt) is",
+    "options": [
+      "5%",
+      "12%",
+      "17%",
+      "20%"
+    ],
+    "correctAnswer": "B",
+    "explanation": "The fraction of total cardiac output that traverses the pulmonary\ncirculation without participating in gas exchange is called the transpulmonary\nshunt. It can be calculated exactly by the equation:\nwhere Cc′, Ca, and CV O2 stand for the content of oxygen in the alveolar\ncapillary, artery, and mixed venous samples, respectively. This information is\nnot provided in the question; however, the alveolar-to-arterial partial pressure\nof oxygen difference is using high inspired oxygen concentrations. The alveolar\nto arterial oxygen difference can be used to estimate venous admixture, most\ncommonly transpulmonary shunt. For every increase in alveolar-arterial O2 of\n20 mm Hg, there is an increase in shunt fraction of 1% of the cardiac output.\nIn the example, 240/20 = 12 and the transpulmonary shunt can be estimated at\n12% (Miller: Miller’s Anesthesia, ed 8, p 1557; Miller: Basics of Anesthesia,\ned 7, p 374) ."
+  },
+  {
+    "id": 131,
+    "question": "Each of the following will alter the position or slope of the CO2 -ventilatory\nresponse curve EXCEPT",
+    "options": [
+      "Hypoxemia",
+      "Fentanyl",
+      "N2 O",
+      "Ketamine"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Measuring the ventilatory response to increased Paco 2 is a sensitive\nmethod for quantifying the effects of drugs on ventilation. In general, all\nvolatile anesthetics (including N2 O), narcotics, benzodiazepines, and\nbarbiturates depress the ventilatory response to increased Paco 2 in a dosedependent\nmanner. The magnitude of ventilatory depression by volatile\nanesthetics is greater in patients with COPD than in healthy patients. Arterial\nblood gases (ABGs) may need to be monitored during recovery from general\nanesthesia in patients with COPD. Ketamine causes minimal respiratory\ndepression. Typically, respiratory rate is decreased only 2 to 3 breaths/min, and\nthe ventilatory response to changes in Paco 2 is maintained during ketamine\nanesthesia. Also see explanation to Question 105 (Miller: Basics of\nAnesthesia, ed 6, pp 63–64, 93–94, 110; Miller: Miller’s Anesthesia, ed 8, pp\n691–693; Barash: Clinical Anesthesia, ed 8, pp 370–371, 493–496) ."
+  },
+  {
+    "id": 132,
+    "question": "Which of the following statements concerning the distribution of alveolar\nventilation ( ) in the upright lungs is TRUE ?",
+    "options": [
+      "The distribution of is not affected by body posture",
+      "Alveoli at the apex of the lungs (nondependent alveoli) are better",
+      "ntilated than those at the base",
+      "All areas of the lungs are ventilated equally",
+      "Alveoli at the base of the lungs (dependent alveoli) are better",
+      "ntilated than those at the apex"
+    ],
+    "correctAnswer": "D",
+    "explanation": "(See also explanation to Question 124.) The orientation of the lungs\nrelative to gravity has a profound effect on efficiency of pulmonary gas\nexchange. Because alveoli in dependent regions of the lungs expand more per\nunit change in transpulmonary pressure (i.e., are more compliant) than alveoli\nin nondependent regions of the lungs, increases from the top to the bottom\nof the lungs. Because pulmonary blood flow increases more from the top to the\nbottom of the lungs than does , the ventilation/perfusion ratio is high in\nnondependent regions of the lungs and is low in dependent regions of the\nlungs. Therefore in the upright lungs, the Pao 2 and pH are greater at the apex,\nwhereas the Paco 2 is greater at the base (Miller: Miller’s Anesthesia, ed 8, pp\n451–454; West: Respiratory Physiology, ed 9, pp 21–22, 44–46; Barash:\nClinical Anesthesia, ed 8, p 372) ."
+  },
+  {
+    "id": 133,
+    "question": "In the resting adult, what percentage of total body O2 consumption is due to\nthe work of breathing?",
+    "options": [
+      "2%",
+      "5%",
+      "10%",
+      "20%"
+    ],
+    "correctAnswer": "A",
+    "explanation": "The work required to overcome the elastic recoil of the lungs and thorax,\nalong with airflow or frictional resistances of the airways, contributes to the\nwork of breathing. When the respiratory rate or airway resistance is high or\npulmonary or chest wall compliance is reduced, a large amount of energy is\nspent overcoming the work of breathing. In the healthy resting adult, only 1%\nto 3% of total O2 consumption is used for the work of breathing at rest, but up\nto 50% may be needed in patients with pulmonary disease. Also see\nexplanation to question 110 (Miller: Miller’s Anesthesia, ed 8, p 1563) ."
+  },
+  {
+    "id": 134,
+    "question": "The anatomic dead space in a 70-kg man is",
+    "options": [
+      "50 mL",
+      "150 mL",
+      "250 mL",
+      "500 mL"
+    ],
+    "correctAnswer": "B",
+    "explanation": "The conducting airways (trachea, right and left mainstem bronchi, and\nlobar and segmental bronchi) do not contain alveoli and, therefore, do not take\npart in pulmonary gas exchange. These structures constitute the anatomic dead\nspace. In the adult, the anatomic dead space is approximately 2 mL/kg. The\nanatomic dead space increases during inspiration because of the traction\nexerted on the conducting airways by the surrounding lung parenchyma. In\naddition, the anatomic dead space depends on the size and posture of the\nsubject. Also see explanation to Question 103 (Stoelting: Pharmacology and\nPhysiology in Anesthetic Practice, ed 4, p 778; Barash: Clinical Anesthesia, ed\n7, p 276; Barash: Clinical Anesthesia, ed 8, p 373) ."
+  },
+  {
+    "id": 135,
+    "question": "The most important buffering system in the body is",
+    "options": [
+      "Hemoglobin",
+      "Plasma proteins",
+      "Phosphate",
+      "[HCO3 − ]"
+    ],
+    "correctAnswer": "D",
+    "explanation": "There are three main mechanisms that the body has to prevent changes in\npH: the buffer systems (immediate), the ventilatory response (takes minutes),\nand the renal response (takes hours to days). The buffer systems represent the\nfirst line of defense against adverse changes in pH. The [HCO3 − ] buffer\nsystem is the most important system and represents greater than 50% of the\ntotal buffering capacity of the body. Other important buffer systems include\nhemoglobin, which is responsible for approximately 35% of the buffering\ncapacity of blood, phosphates, plasma proteins, and bone (Miller: Basics of\nAnesthesia, ed 7, p 364) ."
+  },
+  {
+    "id": 136,
+    "question": "A decrease in pH of 0.1 unit will result in",
+    "options": [
+      "A decrease in serum potassium concentration [K+ ] of 0.1 mEq/L",
+      "A decrease in [K+ ] of 1.0 mEq/L",
+      "An increase in [K+ ] of 1.0 mEq/L",
+      "An increase in [K+ ] of 2.0 mEq/L"
+    ],
+    "correctAnswer": "C",
+    "explanation": "Cardiac dysrhythmias are a common complication associated with acidbase\nabnormalities. The etiology of these dysrhythmias is related partly to the\neffects of pH on myocardial potassium homeostasis. Changes in pH cause\npotassium to shift in and out of cells. The rise in potassium for a reduction in\npH is somewhat variable but will definitely result in an increase; the range\nspans from 0.2 to 1.7 mEq/L ( Mount DB: Potassium Balance In Acid-Base\nDisorders. UpToDate. Retrieved May 2019, from\nhttps://www.uptodate.com/contents/potassium-balance-in-acid-base-disorders\n)"
+  },
+  {
+    "id": 137,
+    "question": "A 45-year-old man is rescued from a house fire and brought to the ER. He is\nnoted to have major burns involving 45% of his body, with singed skin on the\nforehead and tip of his nose and painful burned hands. His blood pressure is\n185/90 mm Hg, and his heart rate is 130. He complains of phlegm in his\nthroat, has trouble phonating, and is coughing dark black material. The\ngreatest need for this patient is",
+    "options": [
+      "Fluids to preserve renal function",
+      "Beta blockade and analgesics",
+      "Oxygen therapy with humidification",
+      "Securing the airway"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Three main risk factors for death from burns include inhalation injury,\nburn size (> 40%), and age (> 60 years). Patients who have sustained major\nburns from a fire can rapidly deteriorate. Areas of concern include airway\nmanagement, carbon monoxide (CO) poisoning, pain, edema, fluid\nmanagement, intravenous access, maintenance of body temperature and\nprevention of infections.\nAirway and lung injury can result from direct tissue injury as well as\ninflammatory mediators from burned tissues, infection, and fluid resuscitation.\nSigns of impending airway difficulty include stridor, voice changes, and\ncoughing up carbonaceous material. Explosive injuries involving the head and\nupper torso are at high risk for airway difficulty. Because upper airway\nswelling can rapidly lead to airway obstruction and death, securing the airway\nwith an endotracheal tube (0.5-1 mm internal diameter smaller than normal) is\nadvised in patients with major burns. Along with an intravenous anesthetic\nsuch as ketamine, the muscle relaxant succinylcholine is safe and often used in\nthe first 24 hours after a burn, but is contraindicated after 48 hours due to the\npossibility of a hyperkalemia-induced cardiac arrest. In some cases, a sedated\nfiberoptic intubation may be required. If bronchospasm develops from the\naspiration of burned material or gastric contents, then bronchodilators as well\nas suctioning and fiberoptic evaluation of the airway may be needed.\nIn addition, prolonged entrapment in a fire area can lead to high carbon\nmonoxide (CO) levels, with resultant tissue hypoxia. Detection of high CO\nlevels may not be obvious because standard pulse oximeters read CO as\noxygen. Blood samples analyzed in a blood gas laboratory are required for\ndetection of CO. High-inspired oxygen concentrations are often required to\nprevent tissue hypoxia, as well as to reduce the half-life of CO in the blood.\nThe half-life of CO is 4 hours when breathing room air, 60 to 90 minutes when\nbreathing 100% oxygen, and 20 to 30 minutes in a hyperbaric chamber\nbreathing 100% oxygen at 2 to 3 atm of pressure. With severe swelling,\nescharotomies may be needed to treat compartment syndromes (Barash,\nClinical Anesthesia, ed 8, pp 1511–1516; Miller: Basics of Anesthesia, ed 7,\npp 740–742) ."
+  },
+  {
+    "id": 138,
+    "question": "A 28-year-old, 70-kg woman with ulcerative colitis is receiving a general\nanesthetic for a colon resection and ileostomy. The patient’s lungs are\nmechanically ventilated with the following parameters: 5000 mL and\nrespiratory rate 10 breaths/min. Assuming no change in , how would\nchange if the respiratory rate were increased from 10 to 20 breaths/min?",
+    "options": [
+      "Increase by 500 mL",
+      "Increase by 1000 mL",
+      "Decrease by 750 mL",
+      "Decrease by 1500 mL"
+    ],
+    "correctAnswer": "D",
+    "explanation": "A patient with a Vd of 150 mL and a Va of 350 mL (assuming a normal Vt\nof 500 mL) will have a Vd minute ventilation ( ) of 1500 mL and a Va\nminute ventilation ( ) of 3500 mL ( of 5000 mL) at a respiratory rate of\n10 breaths/min. If the respiratory rate is doubled but remains unchanged,\nthen the would double to 3000 mL and there would be an increase in of\n1500 mL and a decrease in of 1500 mL. Also see explanation to Questions\n103 and 134 (West: Respiratory Physiology, ed 9, pp 16–17; Barash: Clinical\nAnesthesia, ed 8, pp 373, 376; Miller: Miller’s Anesthesia, ed 8, pp 446–447) ."
+  },
+  {
+    "id": 139,
+    "question": "Each of the following will shift the oxyhemoglobin dissociation curve to the\nright EXCEPT",
+    "options": [
+      "Volatile anesthetics",
+      "Decreased Pao 2",
+      "Decreased pH",
+      "Increased temperature"
+    ],
+    "correctAnswer": "B",
+    "explanation": "In addition to the items listed in this question, other factors that shift the\noxyhemoglobin dissociation curve to the right include pregnancy and all\nabnormal hemoglobins such as hemoglobin S (sickle cell hemoglobin). For\nreasons unknown, volatile anesthetics increase the P50 of adult hemoglobin by\n2 to 3.5 mm Hg. A rightward shift of the oxyhemoglobin dissociation curve\nwill decrease the transfer of O2 from alveoli to hemoglobin and improve\nrelease of O2 from hemoglobin to peripheral tissues. Also see explanation to\nQuestion 109 (West: Respiratory Physiology, ed 9, pp 79–82; Miller: Basics of\nAnesthesia, ed 7, p 59) ."
+  },
+  {
+    "id": 140,
+    "question": "The half-life of carboxyhemoglobin in a patient breathing 100% O2 is",
+    "options": [
+      "5 minutes",
+      "1 hour",
+      "2 hours",
+      "4 hours"
+    ],
+    "correctAnswer": "B",
+    "explanation": "The most frequent immediate cause of death from fires is carbon monoxide\ntoxicity. Carbon monoxide is a colorless, odorless gas that exerts its adverse\neffects by decreasing O2 delivery to peripheral tissues. This is accomplished by\ntwo mechanisms. First, because the affinity of carbon monoxide for the O2\nbinding sites on hemoglobin is more than 200 times that of O2 , O2 is readily\ndisplaced from hemoglobin. Thus O2 content is reduced. Second, carbon\nmonoxide causes a leftward shift of the oxyhemoglobin dissociation curve,\nwhich increases the affinity of hemoglobin for O2 at peripheral tissues.\nTreatment of carbon monoxide toxicity is administration of 100% O2 .\nSupplemental oxygen decreases the half-time of carboxyhemoglobin from 4 to\n6 hours with room air to about 1 hour with 100% oxygen. Breathing 100%\noxygen at 3 atm in a hyperbaric chamber reduces the half-time even more to 15\nto 30 minutes. See also explanations for Questions 113 and 129 (Miller:\nMiller’s Anesthesia, ed 8, pp 2679–2680; Barash: Clinical Anesthesia, ed 8, p\n1514) ."
+  },
+  {
+    "id": 141,
+    "question": "A disadvantage of using propofol for prolonged sedation (days) of intubated\npatients in the ICU is potential",
+    "options": [
+      "Alkalosis",
+      "Hypokalemia",
+      "Hypolipidemia",
+      "Bradycardia"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Propofol infusion syndrome is a rare condition associated with prolonged\n(greater than 48 hour) administration of propofol at a dose of 5 mg/kg/hr (83\nμg/kg/min) or higher. This syndrome was first described in children, but later\nobserved in critically ill adults as well. It is manifested by cardiomyopathy\nwith acute cardiac failure, metabolic acidosis, skeletal muscle myopathy,\nhepatomegaly, hyperkalemia, and lipidemia. It is thought to be related to a\nfailure of free fatty acid transport into the mitochondria and failure of the\nmitochondrial respiratory chain. Refractory bradycardia can occur with this\nsyndrome and heralds a poor prognosis (Miller: Miller’s Anesthesia, ed 8, p\n831; Barash: Clinical Anesthesia, ed 8, pp 487, 492) ."
+  },
+  {
+    "id": 142,
+    "question": "A 17-year-old type 1 diabetic with history of renal failure is in the preoperative\nholding area awaiting an operation for acute appendicitis. Arterial blood gases\nare obtained with the following results: Pao 2 88 mm Hg, Paco 2 32 mm Hg, pH\n7.2, [HCO3 − ] 12, [Cl− ] 115 mEq/L, [Na+ ] 138 mEq/L, and glucose 251\nmg/dL. The most likely cause of this patient’s acidosis is",
+    "options": [
+      "Renal tubular acidosis",
+      "Lactic acidosis",
+      "Diabetic ketoacidosis",
+      "Aspirin overdose"
+    ],
+    "correctAnswer": "A",
+    "explanation": "Calculating the anion gap (i.e., the unmeasured anions in the plasma) is\nhelpful in determining the cause of a metabolic acidosis. Anion gap = [Na+ ] −\n([Cl− ] + [HCO3 − ]) and is normally 10 to 12 nmol/L. In this case the anion\ngap = 138 − (115 + 12) = 11, a normal anion gap. Causes of a high anion gap\nmetabolic acidosis include lactic acidosis, ketoacidosis, acute and chronic\nrenal failure, and toxins (e.g., salicylates, ethylene glycol, methanol). Nonanion\ngap metabolic acidosis includes renal tubular acidosis, expansion acidosis\n(e.g., rapid saline infusion), gastrointestinal (GI) bicarbonate loss (e.g.,\ndiarrhea, small bowel drainage), drug-induced hyperkalemia, and acid loads\n(e.g., ammonium chloride, hyperalimentation). Vomiting and nasogastric\ndrainage are some of the many causes of metabolic alkalosis (Longo:\nHarrison’s Principles of Internal Medicine, ed 18, pp 365–369; Barash:\nClinical Anesthesia, ed 8, p 386)."
+  },
+  {
+    "id": 143,
+    "question": "Methods to decrease the incidence of central venous catheter infections\ninclude all of the following EXCEPT",
+    "options": [
+      "Changing the central catheter every 3 to 4 days over a guidewire",
+      "Using minocycline/rifampin impregnated catheters over",
+      "lorhexidine/silver sulfadiazine impregnated catheters for",
+      "spected long-term use",
+      "Using the subclavian over the internal jugular route for access",
+      "Using a single lumen over a multilumen catheter"
+    ],
+    "correctAnswer": "A",
+    "explanation": "Bloodstream infectious complications with central venous catheters are the\nmost common late complication seen with central catheters (> 5%). Current\nCenters for Disease Control and Prevention (CDC) guidelines do not\nrecommend replacing central venous catheters. All the other statements are\ntrue. In addition, evidence is suggesting that the use of ultrasound may\ndecrease the time needed to place catheters and the number of skin punctures\nneeded for central vein access, and may also decrease infections (Miller:\nMiller’s Anesthesia, ed 8, p 1367; Barash: Clinical Anesthesia, ed 8, pp 1652–\n1653; O’Grady et al: Guidelines for the prevention of intravascular catheterrelated\ninfections, Clin Infect Dis 52(9):e164–e166, 2011)."
+  },
+  {
+    "id": 144,
+    "question": "Signs of Sarin nerve gas poisoning include all of the following EXCEPT",
+    "options": [
+      "Diarrhea",
+      "Urination",
+      "Mydriasis",
+      "Lacrimation"
+    ],
+    "correctAnswer": "C",
+    "explanation": "Sarin (also called GB), like GA (Tabun), GD (Soman), GF, VR, and VX,\nis a clear liquid organophosphate that vaporizes at room temperatures. These\nchemical nerve gases mainly bind with acetylcholinesterase and produce\nclinical signs of excessive parasympathetic activity. The term DUMBELS—\nDiarrhea, Urination, Miosis, Bronchorrhea and bronchoconstriction, Emesis,\nLacrimation, and Salivation—can help you remember several of the signs.\nNote the eye signs are pupillary constriction (miosis) and not pupillary dilation\n(mydriasis). Other signs relate to the cardiovascular system and include\nbradycardia, prolonged QT interval, and ventricular dysrhythmias. These\nchemicals also affect the GABA and NMDA receptors and may also cause\ncentral nervous system (CNS) excitation (i.e., convulsions) (Miller: Miller’s\nAnesthesia, ed 8, p 2496; Barash: Clinical Anesthesia, ed 8, pp 303–304)."
+  },
+  {
+    "id": 145,
+    "question": "Which of the following conditions would be associated with the LEAST risk\nof venous air embolism during removal of a central line?",
+    "options": [
+      "Spontaneous breathing, head up",
+      "Spontaneous breathing, flat",
+      "Spontaneous breathing, Trendelenburg",
+      "Mechanical ventilation, Trendelenburg"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Venous air embolism occurs when air enters the venous system through an\nincised or cannulated vein. When cannulating or decannulating central veins, it\nis important to keep a positive venous-to-atmospheric pressure gradient. This\nis usually accomplished by placing the site below the level of the heart (i.e.,\nTrendelenburg position). In addition, under mechanical ventilation or when the\nspontaneously breathing patient exhales or performs a Valsalva maneuver, the\nvenous-to-atmospheric pressure is greater than if a spontaneously breathing\npatient inhales, a time when the venous pressure may be less than atmospheric\npressure (Oropello et al: Critical Care, Chapter 93: Central Venous Access >\nPositioning > Internal Jugular Vein)."
+  },
+  {
+    "id": 146,
+    "question": "Which of the following adverse effects is NOT attributable to respiratory or\nmetabolic acidosis?",
+    "options": [
+      "Increased intracranial pressure",
+      "Peripheral vasoconstriction",
+      "Increased pulmonary vascular resistance",
+      "Increased serum potassium concentration"
+    ],
+    "correctAnswer": "B",
+    "explanation": "Adverse physiologic effects of respiratory or metabolic acidosis include\nCNS depression and increased intracranial pressure (ICP), cardiovascular\nsystem depression (partially offset by increased secretion of catecholamines\nand elevated [Ca++ ]), cardiac dysrhythmias, vasodilation, hypovolemia (which\nis a result of decreased precapillary and increased postcapillary sphincter\ntone), pulmonary hypertension, and hyperkalemia (Barash: Clinical\nAnesthesia, ed 8, pp 387, 407, 1008)."
+  },
+  {
+    "id": 147,
+    "question": "Which of the following maneuvers is LEAST likely to raise arterial saturation\nin a patient in whom the endotracheal tube (ETT) is seated in the right\nmainstem bronchus? The patient has normal lung function.",
+    "options": [
+      "Inflating the pulmonary artery catheter balloon (in the left",
+      "lmonary artery)",
+      "Raising hemoglobin from 8 to 12 mg/dL",
+      "Raising Fio 2 from 0.8 to 1.0",
+      "Increasing cardiac output from 2 to 5 L/min"
+    ],
+    "correctAnswer": "C",
+    "explanation": "Withdrawing the tube into the trachea obviously would improve arterial\nsaturation and is the treatment of choice for inadvertent mainstem intubation.\nShort of pulling the ETT back, all other successful options address ways of\nimproving arterial oxygenation during one-lung ventilation. In essence, any\nmaneuver that improves the saturation of the venous blood will also improve\nthe saturation of arterial blood (in this question). Normal pulmonary\ncirculation is in series with the systemic circulation. Blood exiting the lungs is\nnearly 100% oxygenated regardless of the saturation of the venous blood when\nit exits the right ventricle and enters the lungs via the pulmonary artery. In\none-lung ventilation, deliberate or accidental, blood exiting the ventilated side\nof the lungs (the right side in this question) is also essentially fully saturated,\nbut it mixes with nonoxygenated blood. The nonoxygenated blood has\neffectively bypassed the lungs by passing through an area that is perfused but\nnot ventilated, that is, a shunt. When the blood from the ventilated lung (nearly\n100% oxygenated) mixes with the shunted blood, a mixture will be formed that\nhas saturation less than 100%, but higher than the mixed venous O2 saturation.\nwhere Svo 2 = mixed venous hemoglobin saturation and Sao 2 = arterial oxygen\nsaturation\nO2 content = 1.39 × [Hgb] × SaO 2 + (0.003 × PaO 2 )\nThe exact saturation of the arterial blood in this question depends on the ratio\nof blood exiting the right lung versus that exiting the left lung. Fortunately,\nduring one-lung ventilation, the nonventilated lung collapses and in so doing\nraises its resistance to blood flow. This results in preferentially directing blood\nto the right ventilated lung. A second factor to consider is how well-saturated\nthe shunted blood is. “Red” blood from the right lung mixes with “blue” blood\nfrom the left lung to give a mixture of partially saturated blood. The saturation\nof the shunted “blue” blood depends on the hemoglobin concentration and\ncardiac output. From the first equation above, you can see that raising either of\nthese would improve the mixed venous oxygen saturation and ultimately the\narterial saturation during one-lung ventilation. Inflating the pulmonary artery\ncatheter balloon located in the nonventilated (left) lung would also improve\narterial saturation by limiting blood flow to the left lung. Raising the Fio 2 from\n80% to 100% will do little if anything to improve arterial saturation, because\nthe blood exiting the “working” lung is already fully saturated. The small rise\nin Pao 2 that would result from an increase in Fio 2 , once multiplied by 0.003\n(see the second equation above), would be a very small and insignificant\nnumber. In other words, raising Fio 2 does not improve arterial saturation in the\npresence of a shunt (Miller: Miller’s Anesthesia, ed 8, p 1386; Barash:\nClinical Anesthesia, ed 8, pp 374–375, 720)."
+  },
+  {
+    "id": 148,
+    "question": "A 100-kg man is 24 hours status post four-vessel coronary artery bypass graft.\nWhich of the following pulmonary parameters would be compatible with\nsuccessful extubation in this patient?",
+    "options": [
+      "Vital capacity 2.5 L",
+      "Paco 2 44 mm Hg",
+      "Maximum inspiratory pressure −38 cm H2 O",
+      "All of the above"
+    ],
+    "correctAnswer": "D",
+    "explanation": "The decision to stop mechanical support of the lungs is based on a variety\nof factors that can be measured. Guidelines suggesting that cessation of\nmechanical inflation of the lungs is likely to be successful include a vital\ncapacity greater than 15 mL/kg, arterial Pao 2 greater than 60 mm Hg (Fio 2 <"
+  },
+  {
+    "id": 149,
+    "question": "Which of the following can cause a rightward shift of the oxyhemoglobin\ndissociation curve?",
+    "options": [
+      "Methemoglobinemia",
+      "Carboxyhemoglobinemia",
+      "Hypothermia",
+      "Pregnancy"
+    ],
+    "correctAnswer": "D",
+    "explanation": "A shift to the left in the oxyhemoglobin dissociation curve occurs with\nfetal hemoglobin, alkalosis, hypothermia, carboxyhemoglobin,\nmethemoglobin, and decreased levels of 2,3-DPG. Storage of blood lowers 2,3-\nDPG levels in acid-citrate-dextrose stored blood, but minimal changes are seen\nin 2,3-DPG with citrate-dextrose stored blood. A shift to the right occurs with\nacidosis, hyperthermia, increased levels of 2,3-DPG, inhaled anesthetics, and\npregnancy (Miller: Basics of Anesthesia, ed 7, pp 59, 341, 556, 742)."
+  },
+  {
+    "id": 150,
+    "question": "A 24-year-old man is brought to the operating room 1 hour after a motor\nvehicle accident. He has C7 spinal cord transection and ruptured spleen.\nRegarding his neurologic injury, anesthetic concerns include",
+    "options": [
+      "Risk of hyperkalemia with succinylcholine administration",
+      "Risk of autonomic hyper-reflexia with urinary catheter insertion",
+      "Increased risk of hypothermia",
+      "All of the above"
+    ],
+    "correctAnswer": "C",
+    "explanation": "With acute spinal cord injuries the major anesthetic concerns are airway\nmanagement and management of hemodynamic perturbations associated with\ninterruption of the sympathetic nervous system below the level of the\ntransection. Hyperkalemia in response to succinylcholine does not occur until\nat least 24 hours after the injury. Autonomic hyper-reflexia is not a concern in\nthe acute management of patients with spinal cord injuries. There is no\nevidence that awake intubation (fiberoptic) is superior to direct laryngoscopy,\nas long as in-line traction is held in both cases. These patients are more\nsusceptible to hypothermia compared with patients without spinal cord injuries\nbecause they lack thermoregulation below the level of the cord injury (Barash:\nClinical Anesthesia, ed 8, pp 1023–1024)."
+  },
+  {
+    "id": 151,
+    "question": "After sustaining traumatic brain injury, a 37-year-old patient in the ICU\ndevelops polyuria and a plasma sodium concentration of 159 mEq/L. What\npathologic condition is associated with these clinical findings?",
+    "options": [
+      "Syndrome of inappropriate antidiuretic hormone (SIADH)",
+      "Diabetes mellitus",
+      "Diabetes insipidus",
+      "Cerebral salt wasting syndrome"
+    ],
+    "correctAnswer": "C",
+    "explanation": "Polyuria of neurogenic (rather than nephrogenic) diabetes insipidus is\ncaused by diminished or absent antidiuretic hormone (ADH) synthesis or\nrelease following injury to the hypothalamus, pituitary stalk, or posterior\npituitary gland. Hemoconcentration resulting in hypernatremia often results. In\ncontrast, SIADH is associated with excessive amounts of ADH, which in turn\ncauses hyponatremia. Cerebral salt wasting syndrome results from release of\nbrain natriuretic peptide in subarachnoid hemorrhage patients. The resulting\nnatriuresis-mediated electrolyte perturbation is hyponatremia. Diabetes\nmellitus and spinal shock do not cause hypernatremia (Longo: Harrison’s\nPrinciples of Internal Medicine, ed 18, pp 349–351; Barash: Clinical\nAnesthesia, ed 8, p 403)."
+  },
+  {
+    "id": 152,
+    "question": "Which of the following drugs is the best choice for treating hypotension in the\nsetting of severe acidemia?",
+    "options": [
+      "Norepinephrine",
+      "Epinephrine",
+      "Phenylephrine",
+      "Vasopressin"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Vasopressin, also known as antidiuretic hormone, is a naturally occurring\npeptide synthesized in the hypothalamus and stored in the posterior pituitary.\nIt is used clinically to treat diabetes insipidus, and in the ICU it is used to treat\nhypotension. Patients with severe sepsis and septic shock have a relative\ndeficiency of vasopressin, and these patients may be sensitive to vasopressin.\nVasopressin interacts with a different receptor and, unlike the catecholamines,\nit is effective even in the presence of acidemia (Miller: Basics of Anesthesia,\ned 7, p 550)."
+  },
+  {
+    "id": 153,
+    "question": "The end-tidal CO2 measured by an infrared spectrometer is 35 mm Hg. An\narterial blood gas sample drawn at exactly the same moment is 45 mm Hg.\nWhich of the following is the LEAST plausible explanation for this?",
+    "options": [
+      "Morbid obesity",
+      "Pulmonary embolism",
+      "Intrapulmonary shunt",
+      "Chronic obstructive pulmonary disease (COPD)"
+    ],
+    "correctAnswer": "C",
+    "explanation": "Confusion may exist between the concepts of shunt versus dead space.\nBoth of these are forms of mismatch. With shunts, there is a gradient\nbetween the alveolar and the arterial oxygen partial pressures. Alveolar partial\npressure (PA) is calculated from the alveolar gas equation. The Paco 2 with\nshunt is compensated and is usually normal, even in the presence of a\nsignificant mismatch. Dead space refers to the portion of a breath that\ndoes not reach perfused alveoli. In pathologic conditions, such as COPD,\nmorbid obesity, and pulmonary embolism, dead space is increased because air\npasses into alveoli that are ventilated but not perfused. This air does not\nparticipate in gas exchange and simply exits these unperfused alveoli and\n“dilutes” the carbon dioxide exiting the lungs from the perfused alveoli. Under\nthese circumstances the mixed expired CO2 measured with capnometry will be\nless than the actual arterial CO2 (Miller: Basics of Anesthesia, ed 7, pp 62, 64;\nBarash: Clinical Anesthesia, ed 8, p 1279; Miller: Miller’s Anesthesia, ed 8, p\n1559)."
+  },
+  {
+    "id": 154,
+    "question": "A transfusion-related, acute lung injury (TRALI) reaction is suspected in a 48-\nyear-old man in the ICU after a 10-hour operation for scoliosis during which\nmultiple units of blood and factors were administered. Which of the following\nitems is inconsistent with the diagnosis of a TRALI reaction?",
+    "options": [
+      "Fever",
+      "Alveolar-to-arterial (A–a) oxygen gradient of 25 mm Hg",
+      "Acute rise in neutrophil count after onset of symptoms",
+      "Bilateral pulmonary infiltrates"
+    ],
+    "correctAnswer": "C",
+    "explanation": "TRALI reactions are a serious complication of transfusing any product\ncontaining plasma, that is, fresh frozen plasma, whole blood, packed red blood\ncells, platelets, or factor concretes derived from human blood. The clinical\ndiagnosis is made 1 to 2 hours after transfusion (but may occur up to 6 hours\nlater in the ICU). The key features include wide A– a gradient, noncardiogenic\npulmonary edema, and leukopenia (not leukocytosis) secondary to\nsequestration in the lungs. TRALI reactions are one of the leading causes of\ntransfusion-related mortality (Barash: Clinical Anesthesia, ed 8, p 440)."
+  },
+  {
+    "id": 155,
+    "question": "If a central line located in the superior vena cava (SVC) is withdrawn such that\nthe tip of the catheter is just proximal to the SVC, it would be located in which\nvessel?",
+    "options": [
+      "Subclavian vein",
+      "Brachiocephalic vein",
+      "Cephalic vein",
+      "Internal jugular vein"
+    ],
+    "correctAnswer": "B",
+    "explanation": "The right internal jugular vein and the right subclavian vein form the right\nbrachiocephalic vein; similarly, the left internal jugular vein and the left\nsubclavian vein form the left brachiocephalic vein. These two brachiocephalic\nveins form the SVC (Netter’s Clinical Anatomy, ed 4, Figure 3-28)."
+  },
+  {
+    "id": 156,
+    "question": "The time course of anticoagulation therapy is variable after different\npercutaneous coronary interventions (PCIs). Arrange the interventions in\norder, starting with the one requiring the shortest course of aspirin and\nclopidogrel (Plavix) therapy to the one requiring the longest course.",
+    "options": [
+      "Bare-metal stent, percutaneous transluminal coronary angioplasty",
+      "TCA), drug-eluting stent",
+      "Drug-eluting stent, bare-metal stent, PTCA",
+      "PTCA, drug-eluting stent, bare-metal stent",
+      "PTCA, bare-metal stent, drug-eluting stent"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Patients who have undergone a PCI are placed on a course of a\nthienopyridine (ticlopidine or clopidogrel) and aspirin. The thienopyridine is\nused for at least 2 weeks after PTCA, 1 month after a bare-metal stent is\nplaced, and 1 year after a drug-eluting stent is placed. Aspirin is continued for\na longer period of time. This is to decrease the chance of thrombosis of the\ntreated coronary artery (Fleisher et al.: 2014 ACC/AHA Guideline on\nPerioperative Cardiovascular Evaluation and Management of Patients\nUndergoing Noncardiac Surgery , J Am Coll Cardiol 64(22):e77–e137, 2014 ;\ndoi:10.1016/j.jacc.2014.07.944)."
+  },
+  {
+    "id": 157,
+    "question": "A 75-year-old patient in the ICU is intubated and ventilated on AC 12, Vt 500,\nand “some” PEEP. In a 60-second period, he initiates two spontaneous breaths.\nThe peak airway pressure alarm has not sounded. His minute ventilation would\nbe",
+    "options": [
+      "Incalculable without knowledge of PEEP value",
+      "Incalculable without knowing dead space",
+      "Incalculable without knowing magnitude of the two spontaneous",
+      "eaths",
+      "Seven liters"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Minute ventilation is not the same as alveolar ventilation. The latter does\nrequire knowledge of dead space. With the assist control mode, both\nspontaneous and mandatory breaths are supported to the same degree, 500 mL\nin the present case. The amount of PEEP does not affect minute ventilation,\nbut could affect alveolar ventilation by decreasing dead space (Miller: Basics\nof Anesthesia, ed 7, pp. 708–710)."
+  },
+  {
+    "id": 158,
+    "question": "Which of the features below is suggestive of weaponized anthrax exposure as\nopposed to a common flu-like viral illness?",
+    "options": [
+      "Widened mediastinum",
+      "Fever, chills, myalgia",
+      "Severe cough",
+      "Pharyngitis"
+    ],
+    "correctAnswer": "A",
+    "explanation": "After an incubation period (commonly within 2 weeks), inhalational\nanthrax symptoms initially look like viral flu (fever, chills, myalgia, and a\nnonproductive cough). Although leukocytosis is common with anthrax and\nrare with viral flu, white blood cell (WBC) counts initially may be normal at\nthe time the patient presents. After a short while, the patient suddenly appears\ncritically ill, and without treatment, death can occur within a few days.\nSubsternal chest pain, hypoxemia, cyanosis, dyspnea, abdominal pain, and\nsepsis syndrome are common with inhaled anthrax but rare with viral flu.\nAfter the anthrax spores are inhaled, macrophages phagocytize the spores and\ntransport them to mediastinal lymph nodes, where the spores germinate,\nproducing enlarged nodes and a widened mediastinum on the chest x-ray film.\nA widened mediastinum is not seen with viral flu. Pharyngitis is common with\nviral flu and occasionally is seen with anthrax (Longo: Harrison’s Principles\nof Internal Medicine, ed 18, pp 1769–1771; Barash: Clinical Anesthesia, ed 8,\npp 1697–1698)."
+  },
+  {
+    "id": 159,
+    "question": "Which of the following factors could not explain a Pao 2 of 48 mm Hg in a\npatient breathing a mixture of nitrous oxide and oxygen?",
+    "options": [
+      "Hypoxic gas mixture",
+      "Eisenmenger syndrome",
+      "Profound anemia",
+      "Hypercarbia"
+    ],
+    "correctAnswer": "C",
+    "explanation": "To answer this question, it is helpful to review the alveolar gas equation:\nPaO 2 = FIO 2 (Pb − PH 2 O ) − PaCO 2 /R\nPao 2 = partial pressure of oxygen in the alveolar gas; Fio 2 = fraction of inhaled\noxygen; Pb = barometric pressure; Ph 2 o = vapor pressure at 100% saturation\n(47 mm Hg at 37° C); Paco 2 = partial pressure of CO2 in the alveolar gas; R =\nrespiratory quotient.\nAny factor that lowers Pao 2 (below 100 mm Hg or so) will also lower Pao 2 .\nHypoxic gas mixture lowers Fio 2, hence Pao 2 . Hypercarbia makes the term\nPaco 2 /R larger and, therefore, reduces Pao 2 . Eisenmenger syndrome results in\na larger shunt fraction and lower Pao 2 on that basis (see explanation to\nQuestion 147). In normally functioning lungs, anemia has a minimal impact on\nPao 2 because physiologic shunt is normally only 2% to 5% of cardiac output\n(Barash: Clinical Anesthesia, ed 8, p 375)."
+  },
+  {
+    "id": 160,
+    "question": "During a left hepatectomy under general isoflurane anesthesia, arterial blood\ngases are: O2 138, CO2 39, pH 7.38, saturation 99%. At the same time, CO2 on\ninfrared spectrometer is 26 mm Hg. The most plausible explanation for the\ndifference between CO2 measured with infrared spectrometer versus arterial\nblood gas gradient is",
+    "options": [
+      "Mainstem intubation",
+      "Atelectasis",
+      "Shunting through thebesian veins",
+      "Hypovolemia"
+    ],
+    "correctAnswer": "D",
+    "explanation": "The difference between the Paco 2 and the CO2 value measured by the\ninfrared spectrometer is a function of the patient’s physiologic dead space.\nPhysiologic dead space is equal to anatomic dead space plus alveolar dead\nspace. Anatomic dead space is roughly 1 mL/lb of body weight. Because\nanatomic dead space is relatively “fixed,” changes in physiologic dead space\nare mainly attributable to changes in alveolar dead space. Alveoli that are\nventilated, but not perfused, add to alveolar dead space. In essence, air goes\ninto these alveoli but does not participate in gas exchanges and merely exits the\nalveoli upon exhalation. Ventilation of dead space serves no useful purpose but\ndoes result in “dilution” of the exhaled CO2 , thus explaining why the CO2\nseen on the infrared spectrometer can be substantially lower than that obtained\nfrom arterial blood gas analysis. Several factors increase dead space, including\nlung diseases such as COPD, cystic fibrosis, and pulmonary emboli. In\naddition, decreased alveolar perfusion from low cardiac output or hypovolemia\nmay also contribute to increased dead space. Mainstem intubation, atelectasis,\nshunting through thebesian veins, and ablation of hypoxic pulmonary\nvasoconstriction by isoflurane are various causes of shunting. Shunting is also\na mismatch between ventilation and perfusion, but, in contrast to\nmismatch from dead space ventilation, shunting results in a normal or nearly\nnormal Paco 2 but a larger-than-expected A– a O2 gradient. The only choice in\nthis question that would explain an increase in dead space ventilation is\nhypovolemia (Barash: Clinical Anesthesia, ed 8, pp 373–374)."
+  },
+  {
+    "id": 161,
+    "question": "Under which set of circumstances would energy expenditure per day be the\ngreatest?",
+    "options": [
+      "Sepsis with fever",
+      "60% burn",
+      "Multiple fractures",
+      "1 hour status post liver transplantation"
+    ],
+    "correctAnswer": "B",
+    "explanation": "The normal human’s resting energy expenditure as well as the\npostoperative state is about 1800 kcal/24 hr. With starvation (20 days), energy\nexpenditure decreases to about 1080 kcal/day (60% of normal). Patients who\nhave sustained multiple fractures (2160 kcal/day or 120% of normal), major\nsepsis (2520 kcal/day or 140% of normal), and burns have increased energy\nexpenditures. The energy expenditure in a patient with a major burn also\ndepends on the temperature of the room. The highest energy expenditure is at\na room temperature of 25° C (3819 kcal/day or 212% of normal) and is lower\nat 33° C (3342 kcal/day or 185% of normal) and at 21° C (3600 kcal/day or\n200% of normal) (Miller: Miller’s Anesthesia, ed 8, pp 3136–3138)."
+  },
+  {
+    "id": 162,
+    "question": "Select the FALSE statement regarding amiodarone (Cordarone).",
+    "options": [
+      "It is shown to decrease mortality after myocardial infarction",
+      "It is indicated for ventricular tachycardia and fibrillation refractory",
+      "electrical defibrillation",
+      "Adverse effects include pulmonary fibrosis and thyroid",
+      "sfunction",
+      "It is useful in treatment of torsades de pointes"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Amiodarone is useful in the treatment of a variety of supraventricular and\nventricular cardiac arrhythmias. For the treatment of ventricular tachycardia or\nfibrillation that is refractory to electrical defibrillation, the recommended dose\nis 300 mg IV. Similar to β-blockers, amiodarone decreases mortality after\nmyocardial infarctions. About 5% to 15% of treated patients develop\npulmonary toxicity (especially when doses are > 400 mg/day, or underlying\nlung disease is present), and 2% to 4% develop thyroid dysfunction\n(amiodarone is a structural analog of thyroid hormone). It has a prolonged\nelimination half-time of 29 hours and a large volume of distribution. Because\nit prolongs the QTc interval, it may lead to the production of ventricular\ntachydysrhythmias and thus is not useful in treating torsades de pointes\n(Brunton: Goodman & Gilman’s The Pharmacologic Basis of Therapeutics, ed\n13, Chapter 30: Antiarrhythmic Drugs > Antiarrhythmic Drugs >\nAmiodarone)."
+  },
+  {
+    "id": 163,
+    "question": "A 58-year-old woman is awaiting orthotopic liver transplantation for primary\nbiliary cirrhosis in the ICU. An oximetric pulmonary artery catheter is placed,\nand an Svo2 of 90% is measured. Which of the following blood pressure\ninterventions is the LEAST appropriate for treatment of hypotension in this\npatient?",
+    "options": [
+      "Milrinone",
+      "Norepinephrine",
+      "Vasopressin",
+      "Phenylephrine"
+    ],
+    "correctAnswer": "A",
+    "explanation": "Patients with cirrhosis have hyperdynamic circulations, as noted here, with\nthe elevated Svo 2 of 90%. The cardiac output is usually increased, peripheral\nvascular resistance is low, intravascular volume is increased, and arteriovenous\nshunts are present. Hypotension is common. Milrinone is a positive inotrope\nwith vasodilating properties, something this patient does not need. If a\ntreatment for hypotension is needed, drugs with α-agonist properties may be\nhelpful. In addition, vasopressin is also a good choice because it increases\nsystemic vascular resistance (SVR) but does not increase the already high\ncardiac output (Barash: Clinical Anesthesia, ed 8, pp 311–312, 314, 321–324,\n1308–1309) ."
+  },
+  {
+    "id": 164,
+    "question": "A 73-year-old patient is on a ventilator after an MVA. Rate is set at AC 16, Vt\n450 with 5 cm H2 O PEEP. The respiratory therapist notes that the measured\nPEEP is greater than 15 cm H2 O and that the patient is not breathing above\nthe set rate. Which option below is most reasonable for reducing the measured\nPEEP?",
+    "options": [
+      "Increase the respiratory rate",
+      "Increase inspiratory flow rate",
+      "Reverse the I to E ratio",
+      "Paralyze the patient"
+    ],
+    "correctAnswer": "B",
+    "explanation": "The remedy for auto-PEEP is allowing more time for exhalation.\nDecreasing the respiratory rate allows more time for both exhalation and\ninspiration and helps with this problem, but increasing the respiratory rate does\nthe exact opposite and is counterproductive. Reversing the I:E ratio is useful\nwith restrictive lung disease, often in conjunction with paralysis, e.g., for\nARDs, but is useless, even harmful, in the present scenario. Paralyzing the\npatient might remedy breath taking with a spontaneously breathing patient, but\nthis too is useless in the present case. Increasing the inspiratory flow rate\ndecreases the inspiratory flow time and, in the face of an unchanged\nrespiratory rate, would allow for more time to exhale and thus reduce the\nproblem with auto-PEEP (Miller: Basics of Anesthesia, ed 7, p 709) ."
+  },
+  {
+    "id": 165,
+    "question": "A 55-year-old man with polycystic liver disease undergoes an 8-hour right\nhepatectomy. The patient receives 5 units of packed red cells, 1000 mL\nalbumin, and 6 L normal saline. The patient is extubated and taken to a\npostanesthesia care unit (PACU) where ABGs are: Pao 2 135, Paco 2 44, pH\n7.17, base deficit −11, [HCO3 − ] 12, 97% saturation, [Cl− ] 119, [Na+ ] 145,\nand [K+ ] 5.6. The most likely cause for this acidosis is",
+    "options": [
+      "Lactic acid",
+      "Use of normal saline",
+      "Diabetic ketoacidosis",
+      "Polyethylene glycol from bowel prep"
+    ],
+    "correctAnswer": "B",
+    "explanation": "This patient has a metabolic acidosis. Recall that anion gap = [Na+ ] −\n([Cl− ] + [HCO3 − ]) and is normally 10 to 12 nmol/L. In this case the anion\ngap = 145 − (119 + 12) = 14, which is slightly above the normal anion gap\nrange. In looking at this case, the acidosis is quite profound and would most\nlikely be related to the rapid infusion of normal saline. Lactic acid,\nketoacidosis, and ethylene glycol produce a high anion gap metabolic acidosis.\nNarcotics may produce respiratory but not metabolic acidosis. See also\nQuestion 142 (Longo: Harrison’s Principles of Internal Medicine, ed 18, pp\n365–369 ; Barash: Clinical Anesthesia, ed 8, pp 385–390) ."
+  },
+  {
+    "id": 166,
+    "question": "Which of the following is the LEAST appropriate use of noninvasive positivepressure\nventilation (NIPPV)?",
+    "options": [
+      "Acute respiratory distress syndrome (ARDS)",
+      "COPD exacerbation",
+      "Obstructive sleep apnea",
+      "Multiple sclerosis exacerbation"
+    ],
+    "correctAnswer": "A",
+    "explanation": "Noninvasive positive-pressure ventilation (NIPPV) refers to delivering\npositive-pressure ventilation to patients by way of a nasal mask, or full face\nmask, without the placement of an endotracheal or tracheostomy tube. This\nmode of therapy requires conscious and cooperative patients and does not\nprotect the airway. NIPPV has been very useful in COPD patients and in\nimmunosuppressed patients in acute respiratory failure. It most likely will fail\n(i.e., intubation would be needed) in patients with pneumonia and ARDS\n(Miller: Miller’s Anesthesia, ed 8, p 3068 ; Barash: Clinical Anesthesia, ed 8,\npp 1643–1645) ."
+  },
+  {
+    "id": 167,
+    "question": "A 68-year-old asthmatic drunk driver comes into the ER after being in a motor\nvehicle accident. After a difficult intubation, you fail to observe end-tidal CO2\non the monitor. Reasons for this include all of the following EXCEPT",
+    "options": [
+      "You intubated the esophagus by mistake",
+      "You forgot to ventilate the patient",
+      "The connection between the circuit and monitor has become",
+      "sconnected",
+      "The patient also has a pneumothorax, and high airway pressures",
+      "e needed to adequately ventilate the patient"
+    ],
+    "correctAnswer": "D",
+    "explanation": "Capnography has been a valuable monitor for the cardiac and pulmonary\nsystems, as well as for checking the anesthetic equipment. Forgetting to\nventilate the patient, intubating the esophagus, and having the sensing tube\nbecome disconnected from the monitor quickly will show no CO2 detected.\nAny significant reduction in lung perfusion (i.e., air embolism, decreased\ncardiac output, or decreased blood pressure) increases alveolar dead space and\nleads to a lowering of the detected CO2 . A cardiac arrest where there is no\nblood flow to the lungs and hence no carbon dioxide going to the lungs would\nalso result in no detectable CO2 . As CPR is started, detectable CO2 would be\na sign of lung perfusion and ventilation. A patient with a pneumothorax and\nhigh airway pressures would still give you CO2 readings (Barash: Clinical\nAnesthesia, ed 8, pp 711–712) ."
+  },
+  {
+    "id": 168,
+    "question": "A 30-year-old woman has undergone a 2-hour abdominal surgical procedure\nand is sent to the ICU intubated for postoperative monitoring, due to suspected\nsepsis. Three hours later, the ventilator malfunctions and the resident\ndisconnects the patient from the ventilator and hand ventilates the patient with\n100% oxygen. The patient has good bilateral breath sounds, the chest rises\nnicely, and moisture is seen in the ETT. Shortly thereafter, the patient’s heart\nrate slows to 30 beats/min and the blood pressure is 50 mm Hg systolic. The\nnext intervention that should be done, in addition to chest compressions, is",
+    "options": [
+      "Administer atropine",
+      "Start epinephrine",
+      "Confirm ETT position",
+      "Apply external pacemaker"
+    ],
+    "correctAnswer": "C",
+    "explanation": "Always confirm an adequate Airway and Breathing before treating a\nCardiac rhythm (A, B before C). Having the ETT in proper position for several\nhours does not ensure that it remains in proper position. In this case the ETT\nslipped out of the trachea and went into the esophagus. The only way you\nknow the ETT is in the trachea is to see the tube passing between the vocal\ncords directly with a conventional laryngoscope or by putting a fiberoptic\nbronchoscope through the tube and seeing carina. Other forms of confirmation\nsuch as bilateral breath sounds, adequate chest rise, and moisture in the tube\nare helpful but could also be seen with an esophageal intubation. Getting a\nconsistent and adequate end tidal CO2 on a monitor confirms some gas\nexchange, but in cases where blood does not get to the lungs, as in a cardiac\narrest, CO2 cannot be removed from the lungs. The first part in the treatment\nof bradycardia is adequate ventilation with oxygen. After that the other choices\nmay be indicated (Miller: Miller’s Anesthesia, ed 8, p 1654; Barash: Clinical\nAnesthesia, ed 8, p 1247) ."
   }
 ]
 // State variables
